@@ -13,6 +13,7 @@ from audit_shared.rules.engine import RuleEngine
 from audit_shared.models.data_flow import CrawlDataset, PageRecord, ExtractedData, ExtractionDiagnostics, CrawlStats, CrawlDiagnostics, DateCandidate
 from audit_shared.models.grouping import EvaluationScope
 from audit_shared.grouping.deduplicator import GroupDeduplicator
+from audit_shared.validation.evidence_validator import EvidenceValidator
 def hydrate_dataset(data: dict) -> CrawlDataset:
     pages = []
     for p in data.get('pages', []):
@@ -105,9 +106,20 @@ def main():
     )
     grouped_results = GroupDeduplicator.process(result.findings, scope)
     
-    print(f"Grouped into {len(grouped_results)} aggregate findings.")
+    # Run Phase 9 Evidence Validation
+    validation_result = EvidenceValidator.validate_all(grouped_results, dataset, scope)
     
-    canonical_findings = [g.canonical_finding for g in grouped_results]
+    print(f"Grouped into {len(grouped_results)} aggregate findings.")
+    print(f"Evidence Validation: {len(validation_result.valid_groups)} valid, {len(validation_result.invalid_groups)} invalid.")
+    
+    if validation_result.diagnostics:
+        print("\n--- VALIDATION DIAGNOSTICS ---")
+        for d in validation_result.diagnostics:
+            print(f"[{d.finding_id}] FAILED:")
+            for err in d.errors:
+                print(f"  - {err}")
+    
+    canonical_findings = [g.canonical_finding for g in validation_result.valid_groups]
     
     if canonical_findings:
         print("\nFindings:")
