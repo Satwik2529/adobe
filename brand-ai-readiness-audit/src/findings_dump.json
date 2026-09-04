@@ -1,0 +1,1298 @@
+[
+  {
+    "id": "F-AI-CANONICAL-001-C58CDEB106751EFDE9DE8A6220C1D568",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-7B500ABA8EA7DDFDC2D1BDC34C2CF5BF",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/downloads/android/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-83FE857D780F48F808AD1B7F714DAE32",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/community/lists/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-B4175D2CBFA438529D4731B930192575",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/events/calendars/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-06BDD0AF94AC60751DE69A0CB155D93A",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/events/python-user-group/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-B11F5EB5A22AF286C84A0D0BB27BBF50",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/downloads/release/python-3142/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-1D5D0C579DA8A952E09C3C3B9264BAD6",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/category/business/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-0FF5D90987458ADCD51D04D9498D4920",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/downloads/release/python-3150rc2/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-7A1E1E4ED7A866178E887EC8DFE31E1C",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/events/python-user-group/2153/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-314C64E6ACFA502A24C28A217FC5B0E1",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/events/python-user-group/2152/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-803D840766E7B7AC8AB0AED4D4E6F750",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/community/clpya-guidelines.txt/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-6AA2CA3048DCE06BA42B4C3097047ED2",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/using-python-to-make-unstable-apis-reliable/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-A2DE13638D89C6C8F556524234C22193",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/carmanah-lights-the-way-with-python/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-AC5D95C65FDB7AB31BA87B0C39E832B6",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/python-for-financial-machine-learning-at-union-investment/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-677274DC226131E37B0ED6DD03929E0F",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/wordstream-uses-python-as-their-platform-of-choice/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-7E9120A43099EE1565F130733DF714B2",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/create/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-BB7A3BED8A919EB76DD66D1B59D74837",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/using-python-to-build-a-solution-for-instant-tokenized-real-estate-redemptions/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-C0254746C107C48C8C3EBFA890E4D24D",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/python-in-a-classic-enterprise-setting-hand-rolled-microservices-for-supply-chain-erp/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-64D9708E6F3F69A59863BBCD043D74FF",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/python-on-guard/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-073D3F89856EA88FA6D94A77BE52C4FA",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/using-python-for-commercial-cloud-backup/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-7396A99DE54D7034494EC0FF46F5EE36",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/python-is-rackspaces-core-technology/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-7BD1A787B891A535F1F09468C5F8788E",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/python-powers-journyx-timesheet/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-C396ED40324F991F67A9F366F9B81377",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/lincoln-loop-building-a-sustainable-business-inspired-by-pythons-ethos/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-C70D29D295299A12459B8741E3D675C5",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/making-our-new-website-and-admin-work-together-using-python/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-8EE57ABCF8828C9D3DBA4881CAA86026",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/python-to-control-cddvd-packaging-hardware/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-63F50751CD9FAB0DF00194AD70CB5169",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/category/data-science/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-93B03247739D83BADA81FDA46B5ED7D4",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/d-link-australia/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-A50FC5562F299D9199E6C4FA6C494947",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/python-seo-link-analyzer/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-DB816FC2E231FDA24C41E8015419989E",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/search/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-D307EE15991380604B771D60CD319901",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/downloads/release/python-3145/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-5F7764444BE3117A1A3944A2C7BF3244",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/downloads/release/python-3150a8/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-08970156963B09283B18044275886CD0",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/downloads/release/python-3150a5/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-0B85C41415C39B87F87C2B9EFAC550B5",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/downloads/release/python-3150a2/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-BA2CB8D01CD49AE8B7DA85B7CEA03805",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/downloads/release/python-3140rc2/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-CANONICAL-001-7E68291CE0CA6C69BAEC5ADC31922BB0",
+    "pipeline": "ai_discoverability",
+    "title": "Missing Canonical",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-CANONICAL-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/downloads/release/python-3150a7/",
+      "source": "extracted",
+      "field": "canonical",
+      "observed_value": "No canonical tag found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add a canonical tag.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-HTML-001-729793A3BD052D1B59FA651BE4F5CE47",
+    "pipeline": "ai_discoverability",
+    "title": "Missing H1",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-HTML-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/events/python-user-group/",
+      "source": "extracted",
+      "field": "h1s",
+      "observed_value": "0 H1 tags found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add an H1 tag to describe the page's main topic.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-HTML-001-85FD04695F38FA2600C2854AD45DD94D",
+    "pipeline": "ai_discoverability",
+    "title": "Missing H1",
+    "severity": "medium",
+    "trigger": {
+      "rule_id": "AI-HTML-001",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/search/",
+      "source": "extracted",
+      "field": "h1s",
+      "observed_value": "0 H1 tags found",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Add an H1 tag to describe the page's main topic.",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-C468DAD98414DE1E72B2E11BBC8BD29D",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/category/business/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-442DACBD3DF63894D7BD73AABE1683BE",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/using-python-to-make-unstable-apis-reliable/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-C42281BB89E429173414257B07BEE3A6",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/carmanah-lights-the-way-with-python/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-AC68AAC545222CC5DA3ADB4DD42FB40E",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/python-for-financial-machine-learning-at-union-investment/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-01608BD615FDF69D2A7F533D5749045B",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/wordstream-uses-python-as-their-platform-of-choice/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-489CC95003B1B54319B75754A1A386CB",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/using-python-to-build-a-solution-for-instant-tokenized-real-estate-redemptions/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-41EC80E2D711D4755FC5462BE166DDF6",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/python-in-a-classic-enterprise-setting-hand-rolled-microservices-for-supply-chain-erp/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-1755769DC100657BC452CD5126E9C0D1",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/python-on-guard/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-607972E59AD8D16AA28B9ABC2BFC4BD2",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/using-python-for-commercial-cloud-backup/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-A191DAD48B1535AAF8B683ED2BE41B6F",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/python-is-rackspaces-core-technology/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-2F77CD691413526ECB12E179CA512F56",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/python-powers-journyx-timesheet/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-757FEF2B9311117B9CBB1D771F7C3522",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/lincoln-loop-building-a-sustainable-business-inspired-by-pythons-ethos/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-C2515D9155C588074A7AB0E53A4A6704",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/making-our-new-website-and-admin-work-together-using-python/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-0279DD820BF83F3DE7B4DF48BFF249F9",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/python-to-control-cddvd-packaging-hardware/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-8C125AF21BC8DD17005990C0449E0C86",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/category/data-science/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-FBBDB4EDCA0BF7BC7A9406D1C13197FA",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/d-link-australia/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "F-AI-LINK-002-99C653B1FFA501F4425F8CE02147444E",
+    "pipeline": "ai_discoverability",
+    "title": "Internal Link(s) to Redirect",
+    "severity": "low",
+    "trigger": {
+      "rule_id": "AI-LINK-002",
+      "type": "deterministic"
+    },
+    "evidence": {
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
+      "page": "https://www.python.org/success-stories/python-seo-link-analyzer/",
+      "source": "internal_links",
+      "field": "internal_links",
+      "observed_value": "https://www.python.org/success-stories/create/",
+      "details": {}
+    },
+    "suggested_action": {
+      "summary": "Update internal links to point directly to their final destinations.",
+      "priority": "low"
+    }
+  }
+]

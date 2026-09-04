@@ -308,5 +308,11 @@ def start_server(port=5000):
     time.sleep(1) # wait for server to start
     return server
 
+@app.route('/phase7_e2e')
+def phase7_e2e():
+    extra_head = '<script type="application/ld+json">{"@type": "Article", "datePublished": "2023-01-01T12:00:00Z"}</script>'
+    extra_body = '<img src="test.jpg" alt="">\n<!-- No links, making this a dead-end -->'
+    return render_page(title="Test Page", h1="Main Heading", extra_head=extra_head, extra_body=extra_body)
+
 if __name__ == '__main__':
     app.run(port=5000)

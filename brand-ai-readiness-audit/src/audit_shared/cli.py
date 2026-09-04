@@ -8,6 +8,7 @@ from audit_shared.crawl.runner import run_crawl
 from audit_shared.rules.registry import RuleRegistry
 from audit_shared.rules.ai_discoverability import register_ai_discoverability_rules
 from audit_shared.rules.freshness import register_freshness_rules
+from audit_shared.rules.engagement import register_engagement_rules
 from audit_shared.rules.engine import RuleEngine
 from audit_shared.models.data_flow import CrawlDataset, PageRecord, ExtractedData, ExtractionDiagnostics, CrawlStats, CrawlDiagnostics, DateCandidate
 
@@ -73,6 +74,7 @@ def main():
     registry = RuleRegistry()
     register_ai_discoverability_rules(registry)
     register_freshness_rules(registry)
+    register_engagement_rules(registry)
     
     print(f"Evaluating {len(registry._rules)} rules...")
     
