@@ -1,0 +1,58 @@
+﻿
+=================================== ERRORS ====================================
+_________ ERROR collecting tests/test_audit_shared/test_phase3_e2e.py _________
+ImportError while importing test module 'C:\Users\satwi\OneDrive\Desktop\adobe\brand-ai-readiness-audit\tests\test_audit_shared\test_phase3_e2e.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_audit_shared\test_phase3_e2e.py:5: in <module>
+    from audit_shared.crawl.runner import CrawlRunner
+E   ImportError: cannot import name 'CrawlRunner' from 'audit_shared.crawl.runner' (C:\Users\satwi\OneDrive\Desktop\adobe\brand-ai-readiness-audit\src\audit_shared\crawl\runner.py)
+============================== warnings summary ===============================
+..\..\..\..\AppData\Roaming\Python\Python313\site-packages\werkzeug\routing\rules.py:726
+..\..\..\..\AppData\Roaming\Python\Python313\site-packages\werkzeug\routing\rules.py:726
+  C:\Users\satwi\AppData\Roaming\Python\Python313\site-packages\werkzeug\routing\rules.py:726: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    parts = parts or [ast.Str("")]
+
+..\..\..\..\AppData\Roaming\Python\Python313\site-packages\werkzeug\routing\rules.py:723
+..\..\..\..\AppData\Roaming\Python\Python313\site-packages\werkzeug\routing\rules.py:723
+  C:\Users\satwi\AppData\Roaming\Python\Python313\site-packages\werkzeug\routing\rules.py:723: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    _convert(elem) if is_dynamic else ast.Str(s=elem)
+
+..\..\..\..\..\..\Python313\Lib\ast.py:608
+..\..\..\..\..\..\Python313\Lib\ast.py:608
+  C:\Python313\Lib\ast.py:608: DeprecationWarning: Constant.__init__ got an unexpected keyword argument 's'. Support for arbitrary keyword arguments is deprecated and will be removed in Python 3.15.
+    return Constant(*args, **kwargs)
+
+..\..\..\..\..\..\Python313\Lib\ast.py:608
+..\..\..\..\..\..\Python313\Lib\ast.py:608
+  C:\Python313\Lib\ast.py:608: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead
+    return Constant(*args, **kwargs)
+
+..\..\..\..\..\..\Python313\Lib\ast.py:608
+..\..\..\..\..\..\Python313\Lib\ast.py:608
+  C:\Python313\Lib\ast.py:608: DeprecationWarning: Constant.__init__ missing 1 required positional argument: 'value'. This will become an error in Python 3.15.
+    return Constant(*args, **kwargs)
+
+..\..\..\..\AppData\Roaming\Python\Python313\site-packages\werkzeug\routing\rules.py:730
+..\..\..\..\AppData\Roaming\Python\Python313\site-packages\werkzeug\routing\rules.py:730
+  C:\Users\satwi\AppData\Roaming\Python\Python313\site-packages\werkzeug\routing\rules.py:730: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    if isinstance(p, ast.Str) and isinstance(ret[-1], ast.Str):
+
+..\..\..\..\AppData\Roaming\Python\Python313\site-packages\werkzeug\routing\rules.py:731
+..\..\..\..\AppData\Roaming\Python\Python313\site-packages\werkzeug\routing\rules.py:731
+  C:\Users\satwi\AppData\Roaming\Python\Python313\site-packages\werkzeug\routing\rules.py:731: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead
+    ret[-1] = ast.Str(ret[-1].s + p.s)
+
+..\..\..\..\AppData\Roaming\Python\Python313\site-packages\werkzeug\routing\rules.py:731
+..\..\..\..\AppData\Roaming\Python\Python313\site-packages\werkzeug\routing\rules.py:731
+  C:\Users\satwi\AppData\Roaming\Python\Python313\site-packages\werkzeug\routing\rules.py:731: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    ret[-1] = ast.Str(ret[-1].s + p.s)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+ERROR tests/test_audit_shared/test_phase3_e2e.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+16 warnings, 1 error in 0.76s
