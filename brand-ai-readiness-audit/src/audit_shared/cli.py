@@ -11,7 +11,8 @@ from audit_shared.rules.freshness import register_freshness_rules
 from audit_shared.rules.engagement import register_engagement_rules
 from audit_shared.rules.engine import RuleEngine
 from audit_shared.models.data_flow import CrawlDataset, PageRecord, ExtractedData, ExtractionDiagnostics, CrawlStats, CrawlDiagnostics, DateCandidate
-
+from audit_shared.models.grouping import EvaluationScope
+from audit_shared.grouping.deduplicator import GroupDeduplicator
 def hydrate_dataset(data: dict) -> CrawlDataset:
     pages = []
     for p in data.get('pages', []):
@@ -93,17 +94,31 @@ def main():
     
     print(f"\nAudit completed. Evaluated {result.successful_rules} rules successfully, {result.failed_rules} failed.")
             
-    print(f"Found {len(result.findings)} findings.")
+    print(f"Found {len(result.findings)} raw page-level findings.")
     
-    if result.findings:
+    # Run Phase 8 Grouping
+    scope = EvaluationScope(
+        html_pages_crawled=dataset.crawl_stats.html_pages_crawled,
+        successful_pages=dataset.crawl_stats.successful_pages,
+        total_pages_evaluated=len(dataset.pages),
+        is_truncated=len(dataset.unfetched_urls) > 0
+    )
+    grouped_results = GroupDeduplicator.process(result.findings, scope)
+    
+    print(f"Grouped into {len(grouped_results)} aggregate findings.")
+    
+    canonical_findings = [g.canonical_finding for g in grouped_results]
+    
+    if canonical_findings:
         print("\nFindings:")
-        for f in result.findings:
-            print(f"  [{f.severity.name}] {f.trigger.rule_id} @ {f.evidence.page} - {f.suggested_action.summary}")
+        for f in canonical_findings:
+            affected = f.evidence.pages_affected if f.evidence and f.evidence.pages_affected else 1
+            print(f"  [{f.severity.name}] {f.trigger.rule_id} : {f.title} ({affected} pages affected) - {f.suggested_action.summary}")
             
     with open("dataset_dump.json", "w") as f:
         json.dump(raw_data, f, indent=2)
         
-    findings_list = [f.to_dict() for f in result.findings]
+    findings_list = [f.to_dict() for f in canonical_findings]
     with open("findings_dump.json", "w") as f:
         json.dump(findings_list, f, indent=2)
 
