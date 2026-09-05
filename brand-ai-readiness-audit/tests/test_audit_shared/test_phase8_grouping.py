@@ -151,6 +151,63 @@ def test_finding_validator_compatibility():
     errors = FindingValidator.validate(canonical, dataset)
     assert len(errors) == 0
 
+def test_grouping_affected_percentage():
+    # Write a test proving that 2 duplicate findings out of a 10-page site yields pages_affected=2 and affected_percentage=20.0
+    findings = [
+        make_finding("https://example.com/page1", "ISSUE-1"),
+        make_finding("https://example.com/page2", "ISSUE-1")
+    ]
+    # scope with 10 total pages
+    scope = EvaluationScope(
+        html_pages_crawled=10,
+        successful_pages=10,
+        total_pages_evaluated=10,
+        is_truncated=False
+    )
+    results = GroupDeduplicator.process(findings, scope)
+    assert len(results) == 1
+    
+    canonical = results[0].canonical_finding
+    assert canonical.evidence.pages_affected == 2
+    assert canonical.evidence.affected_percentage == 20.0
+
+def test_grouping_percentage_cap():
+    # If pages_affected > total_pages_evaluated (e.g. edge case), cap at 100
+    findings = [make_finding(f"https://example.com/page{i}", "ISSUE-1") for i in range(5)]
+    scope = EvaluationScope(
+        html_pages_crawled=3,
+        successful_pages=3,
+        total_pages_evaluated=3,
+        is_truncated=False
+    )
+    results = GroupDeduplicator.process(findings, scope)
+    assert len(results) == 1
+    assert results[0].canonical_finding.evidence.affected_percentage == 100.0
+
+def test_finding_validator_hallucinated_sample():
+    findings = [make_finding("https://example.com/a")]
+    scope = EvaluationScope(
+        html_pages_crawled=1,
+        successful_pages=1,
+        total_pages_evaluated=1,
+        is_truncated=False
+    )
+    results = GroupDeduplicator.process(findings, scope)
+    
+    canonical = results[0].canonical_finding
+    # Inject a hallucinated URL into the sample
+    canonical.evidence.affected_pages.sample.append("https://example.com/hallucinated")
+    
+    dataset = CrawlDataset(
+        seed_url="https://example.com",
+        crawled_at="",
+        pages=[PageRecord(url="https://example.com/a", final_url="https://example.com/a", status_code=200, content_type="text/html", depth=1, parent_url=None)]
+    )
+    
+    errors = FindingValidator.validate(canonical, dataset)
+    assert len(errors) > 0
+    assert any("does not exist in CrawlDataset" in e and "hallucinated" in e for e in errors)
+
 def test_deterministic_repetition():
     urls = [f"https://example.com/{i}" for i in range(5)]
     f1 = [make_finding(url) for url in urls]

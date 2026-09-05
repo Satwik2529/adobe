@@ -42,7 +42,8 @@ def mock_page(
     canonical: str = None,
     meta_robots: List[str] = None,
     internal_links: List[str] = None,
-    malformed_jsonld_count: int = 0
+    malformed_jsonld_count: int = 0,
+    page_type: str = "unknown"
 ) -> PageRecord:
     ext = ExtractedData(
         title=title,
@@ -51,7 +52,8 @@ def mock_page(
         canonical=canonical,
         meta_robots=meta_robots or [],
         visible_text=visible_text,
-        internal_links=internal_links or []
+        internal_links=internal_links or [],
+        page_type=page_type
     )
     diag = ExtractionDiagnostics(
         malformed_jsonld_count=malformed_jsonld_count,
@@ -157,6 +159,10 @@ def test_nofollow_rule():
     
     ds_empty = mock_dataset([mock_page("https://example.com/ok", meta_robots=[])])
     assert len(rule.evaluate(ds_empty)) == 0
+
+    # Ensure fragments are ignored by NofollowRule
+    ds_frag = mock_dataset([mock_page("https://example.com/frag", meta_robots=["nofollow"], page_type="fragment")])
+    assert len(rule.evaluate(ds_frag)) == 0
 
 def test_redirect_chain_rule():
     rule = RedirectChainRule()

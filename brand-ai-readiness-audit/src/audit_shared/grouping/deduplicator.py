@@ -110,7 +110,7 @@ class GroupDeduplicator:
         if pages_checked == 0:
             pct = 0.0
         else:
-            pct = (pages_affected / pages_checked) * 100
+            pct = min((pages_affected / pages_checked) * 100, 100.0)
             
         # Create Canonical Finding
         # We start with the representative finding to inherit its structure, title, action, etc.
