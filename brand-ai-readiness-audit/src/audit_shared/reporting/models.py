@@ -1,6 +1,7 @@
-from dataclasses import dataclass
-from typing import List, Dict, Any
+from dataclasses import dataclass, field
+from typing import List, Dict, Any, Optional
 from audit_shared.models.finding import Finding
+from audit_shared.genai.diagnostics import GenAIDiagnostics, StageTiming
 
 @dataclass
 class CrawlSummary:
@@ -30,10 +31,12 @@ class FinalReport:
     summary: SeveritySummary
     diagnostics: DiagnosticSummary
     findings: List[Finding]
+    genai_diagnostics: Optional[GenAIDiagnostics] = None
+    stage_timing: Optional[StageTiming] = None
 
     def to_dict(self) -> Dict[str, Any]:
         """Custom serialization to preserve clean JSON."""
-        return {
+        data = {
             "site": self.site,
             "audited_at": self.audited_at,
             "crawl": {
@@ -55,3 +58,13 @@ class FinalReport:
             },
             "findings": [f.to_dict() for f in self.findings]
         }
+        
+        if self.genai_diagnostics:
+            from dataclasses import asdict
+            data["genai_diagnostics"] = asdict(self.genai_diagnostics)
+            
+        if self.stage_timing:
+            from dataclasses import asdict
+            data["stage_timing"] = asdict(self.stage_timing)
+            
+        return data

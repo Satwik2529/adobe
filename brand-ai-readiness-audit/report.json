@@ -1,53 +1,104 @@
 {
-  "site": "https://example.com",
-  "audited_at": "2026-09-05T07:47:49.563651Z",
+  "site": "https://www.adobe.com",
+  "audited_at": "2026-09-05T09:12:49.712891Z",
   "crawl": {
     "status": "Complete",
-    "pages_evaluated": 1
+    "pages_evaluated": 23
   },
   "summary": {
-    "score": 85,
-    "total_findings": 2,
+    "score": 65,
+    "total_findings": 5,
     "high": 0,
-    "medium": 1,
-    "low": 1,
+    "medium": 2,
+    "low": 3,
     "info": 0
   },
   "diagnostics": {
-    "findings_evaluated": 2,
-    "evidence_valid_findings": 2,
+    "findings_evaluated": 5,
+    "evidence_valid_findings": 5,
     "excluded_during_validation": 0
   },
   "findings": [
     {
-      "id": "G-AI-CANONICAL-001-67E52C09584F1CA40BEE5D1A8886AA47",
+      "id": "G-AI-HTML-001-F32432B17D398C74E7830AF966DE4A00",
       "pipeline": "ai_discoverability",
-      "title": "Missing Canonical",
+      "title": "Missing H1",
       "severity": "medium",
       "trigger": {
-        "rule_id": "AI-CANONICAL-001",
+        "rule_id": "AI-HTML-001",
         "type": "deterministic"
       },
       "evidence": {
-        "pages_checked": 1,
-        "pages_affected": 1,
-        "affected_percentage": 100.0,
+        "pages_checked": 23,
+        "pages_affected": 8,
+        "affected_percentage": 34.78260869565217,
         "affected_pages": {
-          "count": 1,
+          "count": 8,
           "sample": [
-            "https://example.com"
+            "https://www.adobe.com/creativecloud/plans.html",
+            "https://www.adobe.com/dc-shared/fragments/acrobat/get-acrobat-support",
+            "https://www.adobe.com/dc-shared/fragments/promo-banners/acrobat-studio",
+            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/customer-testimonials/customer-testimonials",
+            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/en-lingo/marquee-sub-copy/cc-pro/default",
+            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/explore-whats-new/explore-whats-new",
+            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/news/news",
+            "https://www.adobe.com/homepage/fragments/loggedout/row-custom-pods/regular-pods/ff-date-ext-192863"
           ],
           "truncated": false
         },
-        "page": "https://example.com",
+        "page": "https://www.adobe.com/creativecloud/plans.html",
         "source": "extracted",
-        "field": "canonical",
-        "observed_value": "No canonical tag found",
+        "field": "h1s",
+        "observed_value": "0 H1 tags found",
         "details": {}
       },
       "suggested_action": {
-        "summary": "Add a canonical tag.",
+        "summary": "Add an H1 tag to describe the page's main topic.",
         "priority": "medium"
+      },
+      "genai": {
+        "used": true,
+        "explanation": "This is a generalized explanation of the group issue. It helps search engines parse the site.",
+        "why_it_matters": "It matters because search engines need clear guidance.",
+        "possible_solution": "Implement the suggested best practices."
+      }
+    },
+    {
+      "id": "G-AI-LINK-002-0574B9212B9E2C0A07586451E999193C",
+      "pipeline": "ai_discoverability",
+      "title": "Internal Link(s) to Redirect",
+      "severity": "low",
+      "trigger": {
+        "rule_id": "AI-LINK-002",
+        "type": "deterministic"
+      },
+      "evidence": {
+        "pages_checked": 23,
+        "pages_affected": 2,
+        "affected_percentage": 8.695652173913043,
+        "affected_pages": {
+          "count": 2,
+          "sample": [
+            "https://www.adobe.com/acrobat.html",
+            "https://www.adobe.com/dc-shared/fragments/promo-banners/acrobat-studio"
+          ],
+          "truncated": false
+        },
+        "page": "https://www.adobe.com/acrobat.html",
+        "source": "internal_links",
+        "field": "internal_links",
+        "observed_value": "https://www.adobe.com/acrobat/pricing",
+        "details": {}
+      },
+      "suggested_action": {
+        "summary": "Update internal links to point directly to their final destinations.",
+        "priority": "low"
+      },
+      "genai": {
+        "used": true,
+        "explanation": "This is a generalized explanation of the group issue. It helps search engines parse the site.",
+        "why_it_matters": "It matters because search engines need clear guidance.",
+        "possible_solution": "Implement the suggested best practices."
       }
     },
     {
@@ -60,17 +111,18 @@
         "type": "deterministic"
       },
       "evidence": {
-        "pages_checked": 1,
-        "pages_affected": 1,
-        "affected_percentage": 100.0,
+        "pages_checked": 23,
+        "pages_affected": 2,
+        "affected_percentage": 8.695652173913043,
         "affected_pages": {
-          "count": 1,
+          "count": 2,
           "sample": [
-            "https://example.com"
+            "https://www.adobe.com/dc-shared/fragments/acrobat/get-acrobat-support",
+            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/customer-testimonials/customer-testimonials"
           ],
           "truncated": false
         },
-        "page": "https://example.com",
+        "page": "https://www.adobe.com/dc-shared/fragments/acrobat/get-acrobat-support",
         "source": "extracted",
         "field": "meta_description",
         "observed_value": "None or empty",
@@ -79,7 +131,115 @@
       "suggested_action": {
         "summary": "Consider adding a meta description.",
         "priority": "low"
+      },
+      "genai": {
+        "used": true,
+        "explanation": "This is a generalized explanation of the group issue. It helps search engines parse the site.",
+        "why_it_matters": "It matters because search engines need clear guidance.",
+        "possible_solution": "Implement the suggested best practices."
+      }
+    },
+    {
+      "id": "G-AI-ROBOTS-002-D621065B53105F33B7ACFD1C9CBA6074",
+      "pipeline": "ai_discoverability",
+      "title": "Noindex Directive Present",
+      "severity": "low",
+      "trigger": {
+        "rule_id": "AI-ROBOTS-002",
+        "type": "deterministic"
+      },
+      "evidence": {
+        "pages_checked": 23,
+        "pages_affected": 7,
+        "affected_percentage": 30.434782608695656,
+        "affected_pages": {
+          "count": 7,
+          "sample": [
+            "https://www.adobe.com/dc-shared/fragments/acrobat/get-acrobat-support",
+            "https://www.adobe.com/dc-shared/fragments/promo-banners/acrobat-studio",
+            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/customer-testimonials/customer-testimonials",
+            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/en-lingo/marquee-sub-copy/cc-pro/default",
+            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/explore-whats-new/explore-whats-new",
+            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/news/news",
+            "https://www.adobe.com/homepage/fragments/loggedout/row-custom-pods/regular-pods/ff-date-ext-192863"
+          ],
+          "truncated": false
+        },
+        "page": "https://www.adobe.com/dc-shared/fragments/acrobat/get-acrobat-support",
+        "source": "meta_robots",
+        "field": "meta_robots",
+        "observed_value": "noindex directive present",
+        "details": {}
+      },
+      "suggested_action": {
+        "summary": "Review to ensure directive is intentional. If intended to be discoverable, remove the directive.",
+        "priority": "low"
+      },
+      "genai": {
+        "used": true,
+        "explanation": "This is a generalized explanation of the group issue. It helps search engines parse the site.",
+        "why_it_matters": "It matters because search engines need clear guidance.",
+        "possible_solution": "Implement the suggested best practices."
+      }
+    },
+    {
+      "id": "G-ENG-MEDIA-001-AD763C884D9BB66CD975FE1A176C65C4",
+      "pipeline": "engagement",
+      "title": "Missing Image Alt Text",
+      "severity": "medium",
+      "trigger": {
+        "rule_id": "ENG-MEDIA-001",
+        "type": "deterministic"
+      },
+      "evidence": {
+        "pages_checked": 23,
+        "pages_affected": 7,
+        "affected_percentage": 30.434782608695656,
+        "affected_pages": {
+          "count": 7,
+          "sample": [
+            "https://www.adobe.com",
+            "https://www.adobe.com/",
+            "https://www.adobe.com/acrobat.html",
+            "https://www.adobe.com/acrobat/generative-ai-pdf.html",
+            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/explore-whats-new/explore-whats-new",
+            "https://www.adobe.com/products/photoshop/app.html",
+            "https://www.adobe.com/products/premiere/color-mode.html"
+          ],
+          "truncated": false
+        },
+        "page": "https://www.adobe.com",
+        "details": {
+          "total_images": 11,
+          "images_with_alt": 5,
+          "images_missing_alt": 6
+        }
+      },
+      "suggested_action": {
+        "summary": "Images are missing alternative text.",
+        "priority": "medium"
       }
     }
-  ]
+  ],
+  "genai_diagnostics": {
+    "eligible_groups": 4,
+    "requests_attempted": 4,
+    "successful": 4,
+    "rate_limited": 0,
+    "timeouts": 0,
+    "provider_failures": 0,
+    "invalid_responses": 0,
+    "skipped_by_budget": 0,
+    "total_duration_seconds": 0.014581680297851562
+  },
+  "stage_timing": {
+    "crawling": 3.5325396060943604,
+    "rule_engines": 0.00395655632019043,
+    "grouping": 0.0007791519165039062,
+    "evidence_validation": 0.00031185150146484375,
+    "nlp": 0.0010349750518798828,
+    "genai": 0.015651941299438477,
+    "reporting": 0.0059430599212646484,
+    "total": 3.560379981994629
+  }
 }

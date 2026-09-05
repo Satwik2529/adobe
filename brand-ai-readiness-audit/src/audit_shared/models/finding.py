@@ -45,6 +45,8 @@ class NLPContext:
 class GenAIContext:
     used: bool
     explanation: Optional[str] = None
+    why_it_matters: Optional[str] = None
+    possible_solution: Optional[str] = None
 
 @dataclass
 class AffectedPages:

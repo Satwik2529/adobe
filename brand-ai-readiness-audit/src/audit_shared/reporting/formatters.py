@@ -103,6 +103,16 @@ class MarkdownFormatter:
         
         lines.append("")
         
+        # GenAI block
+        if f.genai and f.genai.used and f.genai.explanation and f.genai.why_it_matters and f.genai.possible_solution:
+            lines.append("### GenAI Context")
+            lines.append("")
+            lines.append(f"**Explanation:** {cls._escape(f.genai.explanation)}")
+            lines.append(f"**Why it matters:** {cls._escape(f.genai.why_it_matters)}")
+            lines.append(f"**Possible solution:** {cls._escape(f.genai.possible_solution)}")
+            lines.append("")
+
+        
         # Affected pages sample
         if f.evidence and f.evidence.affected_pages:
             ap = f.evidence.affected_pages
@@ -142,5 +152,34 @@ class TerminalFormatter:
         lines.append(f"Low: {report.summary.low}")
         lines.append(f"Info: {report.summary.info}")
         lines.append("")
+        
+        if report.stage_timing:
+            lines.append("Stage Timing")
+            lines.append("--------------------------------")
+            lines.append(f"Crawling                 {report.stage_timing.crawling:.2f}s")
+            lines.append(f"Rule engines             {report.stage_timing.rule_engines:.2f}s")
+            lines.append(f"Grouping                 {report.stage_timing.grouping:.2f}s")
+            lines.append(f"Evidence validation      {report.stage_timing.evidence_validation:.2f}s")
+            lines.append(f"NLP                      {report.stage_timing.nlp:.2f}s")
+            lines.append(f"GenAI                    {report.stage_timing.genai:.2f}s")
+            lines.append(f"Reporting                {report.stage_timing.reporting:.2f}s")
+            lines.append("--------------------------------")
+            lines.append(f"Total                    {report.stage_timing.total:.2f}s")
+            lines.append("")
+            
+        if report.genai_diagnostics:
+            lines.append("GenAI Diagnostics")
+            lines.append("--------------------------------")
+            lines.append(f"Eligible groups:          {report.genai_diagnostics.eligible_groups}")
+            lines.append(f"Requests attempted:       {report.genai_diagnostics.requests_attempted}")
+            lines.append(f"Successful:               {report.genai_diagnostics.successful}")
+            lines.append(f"Rate limited (429):       {report.genai_diagnostics.rate_limited}")
+            lines.append(f"Timeouts:                 {report.genai_diagnostics.timeouts}")
+            lines.append(f"Provider failures:        {report.genai_diagnostics.provider_failures}")
+            lines.append(f"Invalid responses:        {report.genai_diagnostics.invalid_responses}")
+            lines.append(f"Skipped by budget:        {report.genai_diagnostics.skipped_by_budget}")
+            lines.append(f"Total GenAI time:         {report.genai_diagnostics.total_duration_seconds:.2f}s")
+            lines.append("")
+            
         lines.append("Reports saved to: report.json, report.md")
         return "\n".join(lines)
