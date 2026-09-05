@@ -138,7 +138,9 @@ class GroupDeduplicator:
                 excerpt=rep.evidence.excerpt if rep.evidence else None,
                 context=rep.evidence.context if rep.evidence else None,
                 details=copy.deepcopy(rep.evidence.details) if rep.evidence else {}
-            )
+            ),
+            nlp=copy.deepcopy(rep.nlp) if rep.nlp else None,
+            genai=copy.deepcopy(rep.genai) if rep.genai else None
         )
         
         source_ids = [f.id for f in sorted_sources]

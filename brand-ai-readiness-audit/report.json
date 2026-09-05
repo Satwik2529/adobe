@@ -1,0 +1,85 @@
+{
+  "site": "https://example.com",
+  "audited_at": "2026-09-05T07:47:49.563651Z",
+  "crawl": {
+    "status": "Complete",
+    "pages_evaluated": 1
+  },
+  "summary": {
+    "score": 85,
+    "total_findings": 2,
+    "high": 0,
+    "medium": 1,
+    "low": 1,
+    "info": 0
+  },
+  "diagnostics": {
+    "findings_evaluated": 2,
+    "evidence_valid_findings": 2,
+    "excluded_during_validation": 0
+  },
+  "findings": [
+    {
+      "id": "G-AI-CANONICAL-001-67E52C09584F1CA40BEE5D1A8886AA47",
+      "pipeline": "ai_discoverability",
+      "title": "Missing Canonical",
+      "severity": "medium",
+      "trigger": {
+        "rule_id": "AI-CANONICAL-001",
+        "type": "deterministic"
+      },
+      "evidence": {
+        "pages_checked": 1,
+        "pages_affected": 1,
+        "affected_percentage": 100.0,
+        "affected_pages": {
+          "count": 1,
+          "sample": [
+            "https://example.com"
+          ],
+          "truncated": false
+        },
+        "page": "https://example.com",
+        "source": "extracted",
+        "field": "canonical",
+        "observed_value": "No canonical tag found",
+        "details": {}
+      },
+      "suggested_action": {
+        "summary": "Add a canonical tag.",
+        "priority": "medium"
+      }
+    },
+    {
+      "id": "G-AI-META-003-60ED0C52973A6A2695C10D3DDAD237DA",
+      "pipeline": "ai_discoverability",
+      "title": "Missing Meta Description",
+      "severity": "low",
+      "trigger": {
+        "rule_id": "AI-META-003",
+        "type": "deterministic"
+      },
+      "evidence": {
+        "pages_checked": 1,
+        "pages_affected": 1,
+        "affected_percentage": 100.0,
+        "affected_pages": {
+          "count": 1,
+          "sample": [
+            "https://example.com"
+          ],
+          "truncated": false
+        },
+        "page": "https://example.com",
+        "source": "extracted",
+        "field": "meta_description",
+        "observed_value": "None or empty",
+        "details": {}
+      },
+      "suggested_action": {
+        "summary": "Consider adding a meta description.",
+        "priority": "low"
+      }
+    }
+  ]
+}

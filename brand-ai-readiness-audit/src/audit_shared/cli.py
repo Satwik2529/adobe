@@ -67,16 +67,14 @@ def main():
         page_limit=args.limit
     )
     
-    print(f"Crawling {args.url} (depth={args.depth}, limit={args.limit})...")
-    
+    print("[1/4] Crawling domain... ", end="", flush=True)
     # We must run scrapy in a subprocess to avoid twisted reactor issues if this script is reused, 
     # but here we can just use run_crawl directly since it's a single run.
     raw_data = run_crawl(args.url, config)
-    
     dataset = hydrate_dataset(raw_data)
+    print("OK")
     
-    print(f"Crawled {len(dataset.pages)} pages successfully.")
-    
+    print("[2/4] Executing rule engines... ", end="", flush=True)
     registry = RuleRegistry()
     register_ai_discoverability_rules(registry)
     register_freshness_rules(registry)
@@ -84,30 +82,15 @@ def main():
     
     result = RuleEngine.run(dataset, registry)
     
-    print("Running Phase 10: Semantic/NLP Analysis...")
     nlp_client = NLPClient(use_mock=True) # use mock for now
     semantic_rule = SemanticTopicRule(client=nlp_client)
     nlp_results = asyncio.run(semantic_rule.evaluate(dataset))
     semantic_findings = SemanticInterpreter.interpret(nlp_results)
     
-    print(f"Phase 10 produced {len(semantic_findings)} semantic findings.")
     result.findings.extend(semantic_findings)
+    print("OK")
     
-    print(f"\n--- CRAWL STATS ---")
-    print(f"urls_discovered: {dataset.crawl_stats.urls_discovered}")
-    print(f"urls_scheduled: {dataset.crawl_stats.urls_scheduled}")
-    print(f"requests_attempted: {dataset.crawl_stats.requests_attempted}")
-    print(f"responses_received: {dataset.crawl_stats.responses_received}")
-    print(f"html_pages_crawled: {dataset.crawl_stats.html_pages_crawled}")
-    print(f"successful_pages: {dataset.crawl_stats.successful_pages}")
-    print(f"failed_pages: {dataset.crawl_stats.failed_pages}")
-    print(f"robots_blocked: {dataset.crawl_stats.robots_blocked}")
-    print(f"redirects: {dataset.crawl_stats.redirects}")
-    
-    print(f"\nAudit completed. Evaluated {result.successful_rules} rules successfully, {result.failed_rules} failed.")
-            
-    print(f"Found {len(result.findings)} raw page-level findings.")
-    
+    print("[3/4] Grouping & validating evidence... ", end="", flush=True)
     # Run Phase 8 Grouping
     scope = EvaluationScope(
         html_pages_crawled=dataset.crawl_stats.html_pages_crawled,
@@ -119,31 +102,26 @@ def main():
     
     # Run Phase 9 Evidence Validation
     validation_result = EvidenceValidator.validate_all(grouped_results, dataset, scope)
+    print("OK")
     
-    print(f"Grouped into {len(grouped_results)} aggregate findings.")
-    print(f"Evidence Validation: {len(validation_result.valid_groups)} valid, {len(validation_result.invalid_groups)} invalid.")
+    print("[4/4] Generating report... ", end="", flush=True)
+    from audit_shared.reporting.engine import ReportingEngine
+    from audit_shared.reporting.formatters import MarkdownFormatter, TerminalFormatter
     
-    if validation_result.diagnostics:
-        print("\n--- VALIDATION DIAGNOSTICS ---")
-        for d in validation_result.diagnostics:
-            print(f"[{d.finding_id}] FAILED:")
-            for err in d.errors:
-                print(f"  - {err}")
+    final_report = ReportingEngine.generate_report(dataset, validation_result)
     
-    canonical_findings = [g.canonical_finding for g in validation_result.valid_groups]
-    
-    if canonical_findings:
-        print("\nFindings:")
-        for f in canonical_findings:
-            affected = f.evidence.pages_affected if f.evidence and f.evidence.pages_affected else 1
-            print(f"  [{f.severity.name}] {f.trigger.rule_id} : {f.title} ({affected} pages affected) - {f.suggested_action.summary}")
-            
-    with open("dataset_dump.json", "w") as f:
-        json.dump(raw_data, f, indent=2)
+    # Generate artifacts
+    with open("report.json", "w", encoding="utf-8") as f:
+        json.dump(final_report.to_dict(), f, indent=2)
         
-    findings_list = [f.to_dict() for f in canonical_findings]
-    with open("findings_dump.json", "w") as f:
-        json.dump(findings_list, f, indent=2)
+    with open("report.md", "w", encoding="utf-8") as f:
+        f.write(MarkdownFormatter.generate(final_report))
+        
+    print("OK\n")
+    
+    # Print clean terminal output
+    print(TerminalFormatter.generate(final_report))
 
 if __name__ == "__main__":
     main()
+
