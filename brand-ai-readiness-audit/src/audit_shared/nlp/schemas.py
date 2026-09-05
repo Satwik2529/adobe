@@ -39,6 +39,7 @@ class TopicObservation:
     apparent_topic: str
     content_topic: str
     alignment: TopicAlignment
+    reason: str = ""
 
 @dataclass
 class SemanticObservation:

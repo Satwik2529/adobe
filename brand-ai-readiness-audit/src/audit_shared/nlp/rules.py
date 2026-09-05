@@ -132,7 +132,8 @@ class SemanticTopicRule:
                 observation=TopicObservation(
                     apparent_topic=obs_data.get("apparent_topic", ""),
                     content_topic=obs_data.get("content_topic", ""),
-                    alignment=alignment
+                    alignment=alignment,
+                    reason=obs_data.get("reason", "")
                 ),
                 confidence=confidence,
                 supporting_evidence=evidence

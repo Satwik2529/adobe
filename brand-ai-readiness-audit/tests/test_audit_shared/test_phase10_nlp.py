@@ -8,9 +8,13 @@ from audit_shared.nlp.rules import SemanticTopicRule
 from audit_shared.nlp.gating import CandidateGating
 from audit_shared.nlp.interpreter import SemanticInterpreter
 
-# Custom Mock Client to simulate all edge cases
 class ExtendedMockNLPClient(NLPClient):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.call_count = 0
+
     async def _do_analyze_topic(self, title: str, text: str) -> Optional[Dict[str, Any]]:
+        self.call_count += 1
         await asyncio.sleep(0.01) # fast for tests
         if "timeout_fail" in text:
             await asyncio.sleep(0.5) # Force timeout
@@ -44,11 +48,13 @@ class ExtendedMockNLPClient(NLPClient):
         if "mock_low_alignment" in text:
             resp = _valid_resp(title, text)
             resp["observation"]["alignment"] = "low"
+            resp["observation"]["content_topic"] = "Unrelated Topic"
+            resp["observation"]["reason"] = "Title indicates weather, but content is about dogs."
             # Ensure the source text perfectly matches
             resp["supporting_evidence"]["sources"].append({
                 "source_type": "visible_text",
                 "field": "visible_text",
-                "text": "mock_low_alignment"
+                "text": "mock_low_alignment content " * 30
             })
             return resp
             
@@ -59,7 +65,8 @@ def _valid_resp(title, text, align="high", conf=0.95):
         "observation": {
             "apparent_topic": title,
             "content_topic": title,
-            "alignment": align
+            "alignment": align,
+            "reason": "Alignment is high"
         },
         "confidence": conf,
         "supporting_evidence": {
@@ -84,7 +91,7 @@ def base_dataset():
     pages = [
         create_page("http://ex.com/1", "OK", "This is an ok page. " * 30),
         create_page("http://ex.com/2", "Login", "Please login. " * 30, lang="en"),
-        create_page("http://ex.com/3", "Mismatch", "mock_low_alignment content. " * 30),
+        create_page("http://ex.com/3", "Mismatch", "mock_low_alignment content " * 30),
         create_page("http://ex.com/4", "Short", "Too short."),
         create_page("http://ex.com/5", "NoHTML", "text " * 30, ctype="application/json"),
         create_page("http://ex.com/6", "ES", "text text " * 30, lang="es"),
@@ -167,4 +174,60 @@ def test_global_timeout():
     assert duration < 0.4
     for r in results:
         assert r.state == NLPExecutionState.ANALYSIS_FAILED
+
+from audit_shared.grouping.deduplicator import GroupDeduplicator
+from audit_shared.models.grouping import EvaluationScope
+from audit_shared.validation.evidence_validator import EvidenceValidator
+from audit_shared.reporting.engine import ReportingEngine
+
+def test_nlp_actual_execution_mismatch():
+    page = create_page("http://ex.com/mismatch", "Adobe Photoshop Features", "mock_low_alignment content " * 30)
+    ds = CrawlDataset(seed_url="http://ex.com", crawled_at="now", pages=[page])
+    client = ExtendedMockNLPClient(use_mock=True)
+    rule = SemanticTopicRule(client=client)
+    
+    results = asyncio.run(rule.evaluate(ds))
+    assert client.call_count == 1, "NLP client was not actually called"
+    
+    assert len(results) == 1
+    assert results[0].state == NLPExecutionState.ANALYSIS_SUCCESS
+    
+    findings = SemanticInterpreter.interpret(results)
+    assert len(findings) == 1
+    f = findings[0]
+    
+    assert f.trigger.rule_id == "SEMANTIC_TOPIC_RELEVANCE"
+    assert f.trigger.type.value == "semantic"
+    assert f.nlp.used is True
+    assert f.nlp.semantic_evidence["apparent_topic"] == "Adobe Photoshop Features"
+    assert f.nlp.semantic_evidence["content_topic"] == "Unrelated Topic"
+    assert f.nlp.semantic_evidence["alignment"] == "low"
+    assert "reason" in f.nlp.semantic_evidence
+    
+    scope = EvaluationScope(total_pages_evaluated=1, html_pages_crawled=1, successful_pages=1, is_truncated=False)
+    groups = GroupDeduplicator.process(findings, scope)
+    vr = EvidenceValidator.validate_all(groups, ds, scope)
+    
+    assert len(vr.valid_groups) == 1
+    report = ReportingEngine.generate_report(ds, vr)
+    
+    assert len(report.findings) == 1
+    rf = report.findings[0]
+    assert rf.nlp.semantic_evidence["apparent_topic"] == "Adobe Photoshop Features"
+    assert rf.nlp.semantic_evidence["reason"] == "Title indicates weather, but content is about dogs."
+
+def test_nlp_actual_execution_alignment():
+    page = create_page("http://ex.com/match", "Adobe Photoshop Features", "Actual Photoshop information. " * 30)
+    ds = CrawlDataset(seed_url="http://ex.com", crawled_at="now", pages=[page])
+    client = ExtendedMockNLPClient(use_mock=True)
+    rule = SemanticTopicRule(client=client)
+    
+    results = asyncio.run(rule.evaluate(ds))
+    assert client.call_count == 1, "NLP client was not actually called"
+    
+    assert len(results) == 1
+    assert results[0].state == NLPExecutionState.ANALYSIS_NO_OBSERVATION
+    
+    findings = SemanticInterpreter.interpret(results)
+    assert len(findings) == 0
 

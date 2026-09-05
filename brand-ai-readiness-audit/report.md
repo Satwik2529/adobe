@@ -1,19 +1,19 @@
-# AI Readiness Audit Report: https://www.adobe.com
-**Score:** 65/100
-**Pages evaluated:** 23
-**Crawl status:** Complete
+# AI Readiness Audit Report: http://adobe.com
+**Score:** 60/100
+**Pages evaluated:** 3
+**Crawl status:** Partial
 
 ## AI Discoverability
 
 ### Missing H1
 **Severity:** Medium
-**Affected:** 8 of 23 evaluated pages
+**Affected:** 1 of 3 evaluated pages
 
 **Problem:** Add an H1 tag to describe the page's main topic.
 **Suggested action:** Add an H1 tag to describe the page's main topic.
 
 **Evidence:**
-- **Page:** `https://www.adobe.com/creativecloud/plans.html`
+- **Page:** `https://www.adobe.com/education/students/creativecloud.html`
 - **Checked:** h1s
 - **Observed value:** 0 H1 tags found
 
@@ -24,27 +24,20 @@
 **Possible solution:** Implement the suggested best practices.
 
 **Affected pages:**
-8 pages affected. List:
-- `https://www.adobe.com/creativecloud/plans.html`
-- `https://www.adobe.com/dc-shared/fragments/acrobat/get-acrobat-support`
-- `https://www.adobe.com/dc-shared/fragments/promo-banners/acrobat-studio`
-- `https://www.adobe.com/homepage/fragments/loggedout/redesign/default/customer-testimonials/customer-testimonials`
-- `https://www.adobe.com/homepage/fragments/loggedout/redesign/default/en-lingo/marquee-sub-copy/cc-pro/default`
-- `https://www.adobe.com/homepage/fragments/loggedout/redesign/default/explore-whats-new/explore-whats-new`
-- `https://www.adobe.com/homepage/fragments/loggedout/redesign/default/news/news`
-- `https://www.adobe.com/homepage/fragments/loggedout/row-custom-pods/regular-pods/ff-date-ext-192863`
+1 pages affected. List:
+- `https://www.adobe.com/education/students/creativecloud.html`
 
-### Internal Link(s) to Redirect
-**Severity:** Low
-**Affected:** 2 of 23 evaluated pages
+### Redirect Chain
+**Severity:** Medium
+**Affected:** 1 of 3 evaluated pages
 
-**Problem:** Update internal links to point directly to their final destinations.
-**Suggested action:** Update internal links to point directly to their final destinations.
+**Problem:** Update links to point to the final URL directly.
+**Suggested action:** Update links to point to the final URL directly.
 
 **Evidence:**
-- **Page:** `https://www.adobe.com/acrobat.html`
-- **Checked:** internal_links
-- **Observed value:** https://www.adobe.com/acrobat/pricing
+- **Page:** `http://adobe.com`
+- **Checked:** redirect_chain
+- **Observed value:** http://adobe.com -&gt; https://adobe.com/
 
 ### GenAI Context
 
@@ -53,21 +46,20 @@
 **Possible solution:** Implement the suggested best practices.
 
 **Affected pages:**
-2 pages affected. List:
-- `https://www.adobe.com/acrobat.html`
-- `https://www.adobe.com/dc-shared/fragments/promo-banners/acrobat-studio`
+1 pages affected. List:
+- `http://adobe.com`
 
-### Missing Meta Description
-**Severity:** Low
-**Affected:** 2 of 23 evaluated pages
+### Robots.txt Blocking
+**Severity:** Medium
+**Affected:** 1 of 3 evaluated pages
 
-**Problem:** Consider adding a meta description.
-**Suggested action:** Consider adding a meta description.
+**Problem:** Review robots.txt rules.
+**Suggested action:** Review robots.txt rules.
 
 **Evidence:**
-- **Page:** `https://www.adobe.com/dc-shared/fragments/acrobat/get-acrobat-support`
-- **Checked:** meta_description
-- **Observed value:** None or empty
+- **Page:** `http://adobe.com`
+- **Checked:** robots_blocked
+- **Observed value:** 2 URLs blocked. Examples: https://milo.adobe.com/tools/ost?osi=x0LkInr7lGkqK8dcTFS_Pc6oHauo_g7N_4yWT_gLn20&type=checkoutUrl&text=free-trial&workflowStep=segmentation&modal=twp, https://milo.adobe.com/tools/ost?osi=JzW8dgW8U1SrgbHDmTE-ABsOKPgtl5jugiW8bA5PtKg&type=checkoutUrl&text=free-trial&workflowStep=segmentation&modal=twp&ms=e
 
 ### GenAI Context
 
@@ -76,61 +68,27 @@
 **Possible solution:** Implement the suggested best practices.
 
 **Affected pages:**
-2 pages affected. List:
-- `https://www.adobe.com/dc-shared/fragments/acrobat/get-acrobat-support`
-- `https://www.adobe.com/homepage/fragments/loggedout/redesign/default/customer-testimonials/customer-testimonials`
-
-### Noindex Directive Present
-**Severity:** Low
-**Affected:** 7 of 23 evaluated pages
-
-**Problem:** Review to ensure directive is intentional. If intended to be discoverable, remove the directive.
-**Suggested action:** Review to ensure directive is intentional. If intended to be discoverable, remove the directive.
-
-**Evidence:**
-- **Page:** `https://www.adobe.com/dc-shared/fragments/acrobat/get-acrobat-support`
-- **Checked:** meta_robots
-- **Observed value:** noindex directive present
-
-### GenAI Context
-
-**Explanation:** This is a generalized explanation of the group issue. It helps search engines parse the site.
-**Why it matters:** It matters because search engines need clear guidance.
-**Possible solution:** Implement the suggested best practices.
-
-**Affected pages:**
-7 pages affected. List:
-- `https://www.adobe.com/dc-shared/fragments/acrobat/get-acrobat-support`
-- `https://www.adobe.com/dc-shared/fragments/promo-banners/acrobat-studio`
-- `https://www.adobe.com/homepage/fragments/loggedout/redesign/default/customer-testimonials/customer-testimonials`
-- `https://www.adobe.com/homepage/fragments/loggedout/redesign/default/en-lingo/marquee-sub-copy/cc-pro/default`
-- `https://www.adobe.com/homepage/fragments/loggedout/redesign/default/explore-whats-new/explore-whats-new`
-- `https://www.adobe.com/homepage/fragments/loggedout/redesign/default/news/news`
-- `https://www.adobe.com/homepage/fragments/loggedout/row-custom-pods/regular-pods/ff-date-ext-192863`
+1 pages affected. List:
+- `http://adobe.com`
 
 ## On-site Engagement
 
 ### Missing Image Alt Text
 **Severity:** Medium
-**Affected:** 7 of 23 evaluated pages
+**Affected:** 2 of 3 evaluated pages
 
 **Problem:** Images are missing alternative text.
 **Suggested action:** Images are missing alternative text.
 
 **Evidence:**
-- **Page:** `https://www.adobe.com`
+- **Page:** `http://adobe.com`
 
 **Affected pages:**
-7 pages affected. List:
-- `https://www.adobe.com`
-- `https://www.adobe.com/`
-- `https://www.adobe.com/acrobat.html`
-- `https://www.adobe.com/acrobat/generative-ai-pdf.html`
-- `https://www.adobe.com/homepage/fragments/loggedout/redesign/default/explore-whats-new/explore-whats-new`
-- `https://www.adobe.com/products/photoshop/app.html`
-- `https://www.adobe.com/products/premiere/color-mode.html`
+2 pages affected. List:
+- `http://adobe.com`
+- `https://www.adobe.com/education/students/creativecloud.html`
 
 ## Audit Validation Summary
-- Findings evaluated: 5
-- Evidence-valid findings: 5
+- Findings evaluated: 4
+- Evidence-valid findings: 4
 - Findings excluded during evidence validation: 0

@@ -32,12 +32,12 @@ def test_phase2_metrics_invariants(fixture_app):
     stats = dataset['crawl_stats']
     
     # Explicit deterministic fixture metric assertions
-    assert stats['urls_discovered'] == 34, f"Expected 34, got {stats['urls_discovered']}"
-    assert stats['urls_scheduled'] == 39, f"Expected 39, got {stats['urls_scheduled']}"
-    assert stats['requests_attempted'] == 39, f"Expected 39, got {stats['requests_attempted']}"
-    assert stats['responses_received'] == 34, f"Expected 34, got {stats['responses_received']}"
-    assert stats['html_pages_crawled'] == 32, f"Expected 32, got {stats['html_pages_crawled']}"
-    assert stats['successful_pages'] == 30, f"Expected 30, got {stats['successful_pages']}"
+    assert stats['urls_discovered'] == 41, f"Expected 41, got {stats['urls_discovered']}"
+    assert stats['urls_scheduled'] == 46, f"Expected 46, got {stats['urls_scheduled']}"
+    assert stats['requests_attempted'] == 46, f"Expected 46, got {stats['requests_attempted']}"
+    assert stats['responses_received'] == 41, f"Expected 41, got {stats['responses_received']}"
+    assert stats['html_pages_crawled'] == 39, f"Expected 39, got {stats['html_pages_crawled']}"
+    assert stats['successful_pages'] == 37, f"Expected 37, got {stats['successful_pages']}"
     assert stats['failed_pages'] == 2, f"Expected 2, got {stats['failed_pages']}"
     assert stats['robots_blocked'] == 1, f"Expected 1, got {stats['robots_blocked']}"
     assert stats['duplicate_urls'] == 3, f"Expected 3, got {stats['duplicate_urls']}"
@@ -51,7 +51,7 @@ def test_phase2_metrics_invariants(fixture_app):
     assert stats['robots_blocked'] == 1, "Should have blocked /private"
     
     # 3. redirects do not incorrectly inflate successful_pages
-    assert stats['successful_pages'] == 30
+    assert stats['successful_pages'] == 37
     assert stats['redirects'] == 3
     
     # 4. 404/500 HTML page is counted in failed_pages
@@ -61,7 +61,7 @@ def test_phase2_metrics_invariants(fixture_app):
     assert stats['non_html_responses'] == 1, "Should have exactly 1 non-HTML response (/image.png)"
     
     # 6. duplicate URLs do not inflate unique urls_discovered
-    assert stats['urls_discovered'] == 34
+    assert stats['urls_discovered'] == 41
     
     # 7. every successful/failed page corresponds to a PageRecord
     html_pages = [p for p in dataset['pages'] if 'text/html' in p['content_type']]

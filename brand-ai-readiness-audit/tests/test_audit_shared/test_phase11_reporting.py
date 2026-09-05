@@ -150,12 +150,12 @@ def test_evidence_rendering(sample_dataset, validation_result):
 def test_partial_crawl_wording(validation_result):
     ds1 = CrawlDataset(seed_url="http://x", crawled_at="", pages=[], crawl_stats=CrawlStats(), crawl_diagnostics=CrawlDiagnostics(), unfetched_urls=[], raw_scrapy_stats={})
     report1 = ReportingEngine.generate_report(ds1, validation_result)
-    assert report1.crawl.status == "Complete"
+    assert report1.evaluation_scope.status == "Complete"
     
     ds2 = CrawlDataset(seed_url="http://x", crawled_at="", pages=[], crawl_stats=CrawlStats(), crawl_diagnostics=CrawlDiagnostics(), unfetched_urls=["http://x/1"], raw_scrapy_stats={"finish_reason": "closespider_pagecount"})
     report2 = ReportingEngine.generate_report(ds2, validation_result)
-    assert "Partial" in report2.crawl.status
-    assert "limit reached" in report2.crawl.status
+    assert "Partial" in report2.evaluation_scope.status
+    assert "limit reached" in report2.evaluation_scope.reason
 
 def test_markdown_escaping(sample_dataset):
     f = Finding(

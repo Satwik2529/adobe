@@ -1,0 +1,422 @@
+{
+  "site": "https://arngren.net/",
+  "audited_at": "2026-09-05T10:25:58.214021Z",
+  "summary": {
+    "overall_score": 10,
+    "pages_evaluated": 102,
+    "crawl_status": "Partial (Bounded crawl)",
+    "severity_counts": {
+      "high": 2,
+      "medium": 4,
+      "low": 2,
+      "info": 0
+    },
+    "total_findings": 8
+  },
+  "crawl": {
+    "urls_discovered": 228,
+    "urls_scheduled": 228,
+    "requests_attempted": 104,
+    "responses_received": 104,
+    "html_pages_crawled": 102,
+    "successful_pages": 96,
+    "failed_pages": 6,
+    "robots_blocked": 0,
+    "duplicate_urls": 528,
+    "redirects": 0,
+    "non_html_responses": 0,
+    "crawl_duration": 11.935228099988308
+  },
+  "evaluation_scope": {
+    "status": "Partial (Bounded crawl)",
+    "pages_evaluated": 102,
+    "max_depth": 3,
+    "max_pages": 100,
+    "robots_respected": true,
+    "termination_reason": "closespider_pagecount"
+  },
+  "findings": [
+    {
+      "id": "G-AI-LINK-001-2C16BD5A9F36F3B384C3193908697100",
+      "pipeline": "ai_discoverability",
+      "title": "Broken Internal Link(s)",
+      "severity": "high",
+      "trigger": {
+        "rule_id": "AI-LINK-001",
+        "type": "deterministic"
+      },
+      "evidence": {
+        "pages_checked": 102,
+        "pages_affected": 15,
+        "affected_percentage": 14.705882352941178,
+        "affected_pages": {
+          "count": 15,
+          "sample": [
+            "http://www.arngren.net/elbil-barn-volvo.html",
+            "http://www.arngren.net/elektrisk-atv-polaris.html",
+            "http://www.arngren.net/henes-broon.html",
+            "https://arngren.net/",
+            "https://arngren.net/elbil-barn-gaucho.html",
+            "https://arngren.net/elbil-barn-mercedes.html",
+            "https://arngren.net/elbil-barn-volvo.html",
+            "https://arngren.net/elbil-liten.html",
+            "https://arngren.net/elektrisk-atv-polaris.html",
+            "https://arngren.net/elmoped-bil-200.html"
+          ],
+          "truncated": true
+        },
+        "page": "http://www.arngren.net/elbil-barn-volvo.html",
+        "source": "internal_links",
+        "field": "internal_links",
+        "observed_value": "http://www.arngren.net/elbil-barn-volvo",
+        "details": {}
+      },
+      "suggested_action": {
+        "summary": "Remove or update broken links.",
+        "priority": "high"
+      },
+      "genai": {
+        "used": true,
+        "explanation": "This is a mock GenAI explanation. The finding indicates an issue with the provided rule trigger.",
+        "why_it_matters": "This matters (MOCK) because it affects how search engines and users interact with the page.",
+        "possible_solution": "Mock solution: Review the affected pages and apply the suggested action."
+      }
+    },
+    {
+      "id": "G-AI-CRAWL-001-516F0398168E061877C8F979EB9F58C5",
+      "pipeline": "ai_discoverability",
+      "title": "Client Error (4xx)",
+      "severity": "high",
+      "trigger": {
+        "rule_id": "AI-CRAWL-001",
+        "type": "deterministic"
+      },
+      "evidence": {
+        "pages_checked": 102,
+        "pages_affected": 6,
+        "affected_percentage": 5.88235294117647,
+        "affected_pages": {
+          "count": 6,
+          "sample": [
+            "http://www.arngren.net/elbil-barn-rover",
+            "http://www.arngren.net/elbil-barn-volvo",
+            "http://www.arngren.net/elektrisk-atv",
+            "http://www.arngren.net/film",
+            "http://www.arngren.net/togbane-dampmaskin",
+            "http://www.arngren.net/utv-2"
+          ],
+          "truncated": false
+        },
+        "page": "http://www.arngren.net/elbil-barn-rover",
+        "source": "status_code",
+        "field": "status_code",
+        "observed_value": "404",
+        "details": {}
+      },
+      "suggested_action": {
+        "summary": "Fix broken page or remove links to it.",
+        "priority": "high"
+      },
+      "genai": {
+        "used": true,
+        "explanation": "This is a mock GenAI explanation. The finding indicates an issue with the provided rule trigger.",
+        "why_it_matters": "This matters (MOCK) because it affects how search engines and users interact with the page.",
+        "possible_solution": "Mock solution: Review the affected pages and apply the suggested action."
+      }
+    },
+    {
+      "id": "G-AI-CONTENT-001-28CFD5DC32A19E96FA4F9A232B080E1F",
+      "pipeline": "ai_discoverability",
+      "title": "Exact Duplicate Content",
+      "severity": "medium",
+      "trigger": {
+        "rule_id": "AI-CONTENT-001",
+        "type": "deterministic"
+      },
+      "evidence": {
+        "pages_checked": 102,
+        "pages_affected": 7,
+        "affected_percentage": 6.862745098039216,
+        "affected_pages": {
+          "count": 7,
+          "sample": [
+            "http://www.arngren.net/conrad.html",
+            "http://www.arngren.net/elbil-barn-flest-1.html",
+            "http://www.arngren.net/elbil-barn-volvo.html",
+            "http://www.arngren.net/elektrisk-atv-polaris.html",
+            "http://www.arngren.net/elscooter.html",
+            "http://www.arngren.net/henes-broon.html",
+            "https://arngren.net/"
+          ],
+          "truncated": false
+        },
+        "page": "http://www.arngren.net/conrad.html",
+        "source": "extracted",
+        "field": "visible_text",
+        "observed_value": "Exact duplicate across 2 pages",
+        "details": {}
+      },
+      "suggested_action": {
+        "summary": "Consolidate pages or use canonical tags.",
+        "priority": "medium"
+      },
+      "genai": {
+        "used": true,
+        "explanation": "This is a mock GenAI explanation. The finding indicates an issue with the provided rule trigger.",
+        "why_it_matters": "This matters (MOCK) because it affects how search engines and users interact with the page.",
+        "possible_solution": "Mock solution: Review the affected pages and apply the suggested action."
+      }
+    },
+    {
+      "id": "G-AI-CANONICAL-001-67E52C09584F1CA40BEE5D1A8886AA47",
+      "pipeline": "ai_discoverability",
+      "title": "Missing Canonical",
+      "severity": "medium",
+      "trigger": {
+        "rule_id": "AI-CANONICAL-001",
+        "type": "deterministic"
+      },
+      "evidence": {
+        "pages_checked": 102,
+        "pages_affected": 96,
+        "affected_percentage": 94.11764705882352,
+        "affected_pages": {
+          "count": 96,
+          "sample": [
+            "http://www.arngren.net/3dprinter.html",
+            "http://www.arngren.net/4ch.html",
+            "http://www.arngren.net/F1-1.html",
+            "http://www.arngren.net/F1-1B.html",
+            "http://www.arngren.net/F1-2.html",
+            "http://www.arngren.net/F1-3.html",
+            "http://www.arngren.net/F1-4.html",
+            "http://www.arngren.net/Fjernkontroll-TV.html",
+            "http://www.arngren.net/Lykt-stor.html",
+            "http://www.arngren.net/akvarium.html"
+          ],
+          "truncated": true
+        },
+        "page": "http://www.arngren.net/3dprinter.html",
+        "source": "extracted",
+        "field": "canonical",
+        "observed_value": "No canonical tag found",
+        "details": {}
+      },
+      "suggested_action": {
+        "summary": "Add a canonical tag.",
+        "priority": "medium"
+      },
+      "genai": {
+        "used": true,
+        "explanation": "This is a mock GenAI explanation. The finding indicates an issue with canonical tags, which tell search engines the preferred URL.",
+        "why_it_matters": "This matters (MOCK) because it affects how search engines and users interact with the page.",
+        "possible_solution": "Mock solution: Add or correct the rel=\"canonical\" link."
+      }
+    },
+    {
+      "id": "G-AI-HTML-001-F32432B17D398C74E7830AF966DE4A00",
+      "pipeline": "ai_discoverability",
+      "title": "Missing H1",
+      "severity": "medium",
+      "trigger": {
+        "rule_id": "AI-HTML-001",
+        "type": "deterministic"
+      },
+      "evidence": {
+        "pages_checked": 102,
+        "pages_affected": 96,
+        "affected_percentage": 94.11764705882352,
+        "affected_pages": {
+          "count": 96,
+          "sample": [
+            "http://www.arngren.net/3dprinter.html",
+            "http://www.arngren.net/4ch.html",
+            "http://www.arngren.net/F1-1.html",
+            "http://www.arngren.net/F1-1B.html",
+            "http://www.arngren.net/F1-2.html",
+            "http://www.arngren.net/F1-3.html",
+            "http://www.arngren.net/F1-4.html",
+            "http://www.arngren.net/Fjernkontroll-TV.html",
+            "http://www.arngren.net/Lykt-stor.html",
+            "http://www.arngren.net/akvarium.html"
+          ],
+          "truncated": true
+        },
+        "page": "http://www.arngren.net/3dprinter.html",
+        "source": "extracted",
+        "field": "h1s",
+        "observed_value": "0 H1 tags found",
+        "details": {}
+      },
+      "suggested_action": {
+        "summary": "Add an H1 tag to describe the page's main topic.",
+        "priority": "medium"
+      },
+      "genai": {
+        "used": true,
+        "explanation": "This is a mock GenAI explanation. The finding indicates an issue with the primary heading (H1), which is crucial for topic discoverability.",
+        "why_it_matters": "This matters (MOCK) because it affects how search engines and users interact with the page.",
+        "possible_solution": "Mock solution: Ensure every page has exactly one descriptive H1."
+      }
+    },
+    {
+      "id": "G-AI-META-003-60ED0C52973A6A2695C10D3DDAD237DA",
+      "pipeline": "ai_discoverability",
+      "title": "Missing Meta Description",
+      "severity": "low",
+      "trigger": {
+        "rule_id": "AI-META-003",
+        "type": "deterministic"
+      },
+      "evidence": {
+        "pages_checked": 102,
+        "pages_affected": 71,
+        "affected_percentage": 69.6078431372549,
+        "affected_pages": {
+          "count": 71,
+          "sample": [
+            "http://www.arngren.net/3dprinter.html",
+            "http://www.arngren.net/4ch.html",
+            "http://www.arngren.net/F1-1.html",
+            "http://www.arngren.net/F1-1B.html",
+            "http://www.arngren.net/F1-2.html",
+            "http://www.arngren.net/F1-3.html",
+            "http://www.arngren.net/F1-4.html",
+            "http://www.arngren.net/Fjernkontroll-TV.html",
+            "http://www.arngren.net/Lykt-stor.html",
+            "http://www.arngren.net/apache-fly.html"
+          ],
+          "truncated": true
+        },
+        "page": "http://www.arngren.net/3dprinter.html",
+        "source": "extracted",
+        "field": "meta_description",
+        "observed_value": "None or empty",
+        "details": {}
+      },
+      "suggested_action": {
+        "summary": "Consider adding a meta description.",
+        "priority": "low"
+      },
+      "genai": {
+        "used": true,
+        "explanation": "This is a mock GenAI explanation. The finding indicates an issue with the provided rule trigger.",
+        "why_it_matters": "This matters (MOCK) because it affects how search engines and users interact with the page.",
+        "possible_solution": "Mock solution: Review the affected pages and apply the suggested action."
+      }
+    },
+    {
+      "id": "G-AI-CONTENT-002-EF9967BDAC6FED98FD6ED43C9C28594A",
+      "pipeline": "ai_discoverability",
+      "title": "Thin Content",
+      "severity": "low",
+      "trigger": {
+        "rule_id": "AI-CONTENT-002",
+        "type": "deterministic"
+      },
+      "evidence": {
+        "pages_checked": 102,
+        "pages_affected": 10,
+        "affected_percentage": 9.803921568627452,
+        "affected_pages": {
+          "count": 10,
+          "sample": [
+            "http://www.arngren.net/F1-1.html",
+            "http://www.arngren.net/F1-1B.html",
+            "http://www.arngren.net/F1-2.html",
+            "http://www.arngren.net/F1-3.html",
+            "http://www.arngren.net/F1-4.html",
+            "http://www.arngren.net/apache2.html",
+            "http://www.arngren.net/atv-bensin-1.html",
+            "http://www.arngren.net/bil2.html",
+            "http://www.arngren.net/conrad.html",
+            "http://www.arngren.net/globus.html"
+          ],
+          "truncated": false
+        },
+        "page": "http://www.arngren.net/F1-1.html",
+        "source": "diagnostics",
+        "field": "visible_text_length",
+        "observed_value": "31",
+        "details": {}
+      },
+      "suggested_action": {
+        "summary": "Review to ensure page has enough context to be discoverable.",
+        "priority": "low"
+      },
+      "genai": {
+        "used": true,
+        "explanation": "This is a mock GenAI explanation. The finding indicates an issue with the provided rule trigger.",
+        "why_it_matters": "This matters (MOCK) because it affects how search engines and users interact with the page.",
+        "possible_solution": "Mock solution: Review the affected pages and apply the suggested action."
+      }
+    },
+    {
+      "id": "G-ENG-MEDIA-001-AD763C884D9BB66CD975FE1A176C65C4",
+      "pipeline": "engagement",
+      "title": "Missing Image Alt Text",
+      "severity": "medium",
+      "trigger": {
+        "rule_id": "ENG-MEDIA-001",
+        "type": "deterministic"
+      },
+      "evidence": {
+        "pages_checked": 102,
+        "pages_affected": 96,
+        "affected_percentage": 94.11764705882352,
+        "affected_pages": {
+          "count": 96,
+          "sample": [
+            "http://www.arngren.net/3dprinter.html",
+            "http://www.arngren.net/4ch.html",
+            "http://www.arngren.net/F1-1.html",
+            "http://www.arngren.net/F1-1B.html",
+            "http://www.arngren.net/F1-2.html",
+            "http://www.arngren.net/F1-3.html",
+            "http://www.arngren.net/F1-4.html",
+            "http://www.arngren.net/Fjernkontroll-TV.html",
+            "http://www.arngren.net/Lykt-stor.html",
+            "http://www.arngren.net/akvarium.html"
+          ],
+          "truncated": true
+        },
+        "page": "http://www.arngren.net/3dprinter.html",
+        "details": {
+          "total_images": 111,
+          "images_with_alt": 1,
+          "images_missing_alt": 110
+        }
+      },
+      "suggested_action": {
+        "summary": "Images are missing alternative text.",
+        "priority": "medium"
+      }
+    }
+  ],
+  "diagnostics": {
+    "findings_evaluated": 8,
+    "evidence_valid_findings": 8,
+    "excluded_during_validation": 0
+  },
+  "genai_diagnostics": {
+    "eligible_groups": 7,
+    "requests_attempted": 7,
+    "successful": 7,
+    "rate_limited": 0,
+    "timeouts": 0,
+    "provider_failures": 0,
+    "invalid_responses": 0,
+    "skipped_by_budget": 0,
+    "total_duration_seconds": 0.026539087295532227
+  },
+  "stage_timing": {
+    "crawling": 12.575431108474731,
+    "rule_engines": 0.03017711639404297,
+    "grouping": 0.00910496711730957,
+    "evidence_validation": 0.001560211181640625,
+    "nlp": 0.0016405582427978516,
+    "genai": 0.02781057357788086,
+    "reporting": 0.008102178573608398,
+    "total": 12.654018640518188
+  }
+}

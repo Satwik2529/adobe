@@ -53,7 +53,8 @@ class NLPClient:
                     "observation": {
                         "apparent_topic": title,
                         "content_topic": "Unrelated Topic",
-                        "alignment": "low"
+                        "alignment": "low",
+                        "reason": "Title indicates weather, but content is about dogs."
                     },
                     "confidence": 0.95,
                     "supporting_evidence": {
@@ -73,7 +74,8 @@ class NLPClient:
                 "observation": {
                     "apparent_topic": title,
                     "content_topic": title,
-                    "alignment": "high"
+                    "alignment": "high",
+                    "reason": "Alignment is high"
                 },
                 "confidence": 0.90,
                 "supporting_evidence": {

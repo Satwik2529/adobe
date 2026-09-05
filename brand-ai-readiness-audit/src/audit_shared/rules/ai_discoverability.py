@@ -121,14 +121,16 @@ class NofollowRule(AuditRule):
     def evaluate(self, dataset: CrawlDataset) -> List[Finding]:
         findings = []
         for page in dataset.pages:
-            if "nofollow" in [r.lower() for r in page.extracted.meta_robots]:
+            if page.extracted.page_type == 'fragment':
+                continue
+            if any("nofollow" in r.lower() for r in page.extracted.meta_robots):
                 findings.append(Finding(
                     id=generate_finding_id(self.rule_id, [page.url]),
                     pipeline=self.pipeline,
                     title="Nofollow Directive Present",
                     severity=Severity.LOW,
                     trigger=Trigger(rule_id=self.rule_id, type=TriggerType.DETERMINISTIC),
-                    suggested_action=SuggestedAction(summary="Review to ensure directive is intentional. If intended to be discoverable, remove the directive.", priority=ActionPriority.LOW),
+                    suggested_action=SuggestedAction(summary="Ensure nofollow is intentional; if content should be discoverable via links, remove the directive.", priority=ActionPriority.LOW),
                     evidence=Evidence(page=page.url, source="meta_robots", field="meta_robots", observed_value="nofollow directive present", pages_checked=1, pages_affected=1, affected_percentage=100.0)
                 ))
         return findings

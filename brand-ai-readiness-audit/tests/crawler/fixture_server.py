@@ -51,13 +51,13 @@ def index():
     <a href="/missing_title">Missing Title</a>
     <a href="/missing_h1">Missing H1</a>
     <a href="/canonical_broken">Canonical Broken</a>
-    <a href="/exact_dup_1">Exact Dup 1</a>
-    <a href="/exact_dup_2">Exact Dup 2</a>
-    <a href="/thin_content">Thin Content</a>
-    <a href="/broken_link_source">Broken Link Source</a>
+    <a href="/exact_dup_1">Dup 1</a>
+    <a href="/exact_dup_2">Dup 2</a>
+    <a href="/thin_content">Thin</a>
+    <a href="/broken_link_source">Broken Link</a>
     <a href="/fresh_article">Fresh Article</a>
     <a href="/stale_article">Stale Article</a>
-    <a href="/missing_date_article">Missing Date Article</a>
+    <a href="/missing_date_article">Missing Date</a>
     <a href="/invalid_date">Invalid Date</a>
     <a href="/impossible_date">Impossible Date</a>
     <a href="/future_date">Future Date</a>
@@ -68,6 +68,13 @@ def index():
     <a href="/stale_product">Stale Product</a>
     <a href="/unknown_old_date">Unknown Old Date</a>
     <a href="/evergreen_old_date">Evergreen Old Date</a>
+    <a href="/nofollow_only">Nofollow Only</a>
+    <a href="/index_follow">Index Follow</a>
+    <a href="/nlp_alignment">NLP Alignment</a>
+    <a href="/nlp_mismatch">NLP Mismatch</a>
+    <a href="/unsupported_lang">Unsupported Lang</a>
+    <a href="/insufficient_text">Insufficient Text</a>
+    <a href="/dead_end">Dead End</a>
     """
     extra_head = """
     <meta property="og:title" content="Home OG">
@@ -165,6 +172,14 @@ def chained_destination():
 @app.route('/noindex_page')
 def noindex_page():
     return render_page(title="Noindex", h1="Noindex", robots="noindex, nofollow")
+
+@app.route('/nofollow_only')
+def nofollow_only():
+    return render_page(title="Nofollow", h1="Nofollow", robots="nofollow")
+
+@app.route('/index_follow')
+def index_follow():
+    return render_page(title="Index Follow", h1="Index Follow", robots="index, follow")
 
 @app.route('/missing_title')
 def missing_title():
@@ -287,6 +302,34 @@ def image():
     resp = make_response(b"fake image data")
     resp.headers['Content-Type'] = 'image/png'
     return resp
+
+@app.route('/nlp_alignment')
+def nlp_alignment():
+    # Title matches body, output dropped. Needs >50 words to pass gate.
+    content = "To bake a chocolate cake, you need flour, sugar, cocoa powder, and eggs. Mix them together and bake at 350 degrees. " * 10
+    return render_page(title="How to bake a chocolate cake", h1="Baking a Chocolate Cake", content=content)
+
+@app.route('/nlp_mismatch')
+def nlp_mismatch():
+    # Title conflicts with body, outputs Finding. Needs >50 words to pass gate.
+    content = "mock_low_alignment content Regular oil changes are essential for vehicle longevity. Make sure to check your tire pressure every month. " * 10
+    return render_page(title="Best running shoes 2024", h1="Car Maintenance", content=content)
+
+@app.route('/unsupported_lang')
+def unsupported_lang():
+    # Page in Spanish, skipped. Needs >50 words to pass gate (except language gate).
+    content = "Estos son los mejores zapatos para correr. " * 20
+    return render_page(title="Los mejores zapatos", h1="Los zapatos", content=content, lang="es")
+
+@app.route('/insufficient_text')
+def insufficient_text():
+    # Page < 50 words, skipped
+    return render_page(title="Short Page", h1="Short", content="This page is too short to evaluate.")
+
+@app.route('/dead_end')
+def dead_end():
+    # Genuine dead-end content (Page with 0 outbound body links)
+    return render_page(title="Dead End", h1="Dead End", content="<p>This is a dead end.</p>")
 
 class FixtureServerThread(threading.Thread):
     def __init__(self, port=5000):

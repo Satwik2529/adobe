@@ -31,7 +31,7 @@ class EvidenceValidator:
                 page_map[p.final_url] = p
                 
         # unfetched urls
-        unfetched = set(dataset.unfetched_urls)
+        unfetched = {u.get("url") if isinstance(u, dict) else u for u in dataset.unfetched_urls} if dataset.unfetched_urls else set()
 
         for group in groups:
             errors = []

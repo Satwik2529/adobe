@@ -17,7 +17,7 @@ class SemanticInterpreter:
 
     @classmethod
     def _create_topic_finding(cls, result: NLPPageResult) -> Finding:
-        rule_id = "SEMANTIC-TOPIC-001"
+        rule_id = "SEMANTIC_TOPIC_RELEVANCE"
         pipeline = Pipeline.AI_DISCOVERABILITY
         severity = Severity.MEDIUM
         trigger = Trigger(rule_id=rule_id, type=TriggerType.SEMANTIC)
@@ -25,17 +25,10 @@ class SemanticInterpreter:
         obs = result.observation
         
         semantic_ev_dict = {
-            "sources": [
-                {"source_type": s.source_type, "field": s.field, "text": s.text} 
-                for s in obs.supporting_evidence.sources
-            ],
-            "interpretation": {
-                "what_the_evidence_shows": obs.supporting_evidence.interpretation.what_the_evidence_shows,
-                "why_it_supports_the_observation": obs.supporting_evidence.interpretation.why_it_supports_the_observation
-            } if obs.supporting_evidence.interpretation else None,
             "apparent_topic": obs.observation.apparent_topic,
             "content_topic": obs.observation.content_topic,
-            "alignment": obs.observation.alignment.value
+            "alignment": obs.observation.alignment.value,
+            "reason": obs.observation.reason
         }
         
         nlp_context = NLPContext(

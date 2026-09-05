@@ -1,22 +1,38 @@
 {
-  "site": "https://www.adobe.com",
-  "audited_at": "2026-09-05T09:12:49.712891Z",
-  "crawl": {
-    "status": "Complete",
-    "pages_evaluated": 23
-  },
+  "site": "http://adobe.com",
+  "audited_at": "2026-09-05T14:59:18.205964Z",
   "summary": {
-    "score": 65,
-    "total_findings": 5,
-    "high": 0,
-    "medium": 2,
-    "low": 3,
-    "info": 0
+    "overall_score": 60,
+    "total_findings": 4,
+    "severity": {
+      "high": 0,
+      "medium": 4,
+      "low": 0,
+      "info": 0
+    }
   },
-  "diagnostics": {
-    "findings_evaluated": 5,
-    "evidence_valid_findings": 5,
-    "excluded_during_validation": 0
+  "crawl": {
+    "urls_discovered": 69,
+    "urls_scheduled": 72,
+    "requests_attempted": 14,
+    "responses_received": 6,
+    "html_pages_crawled": 2,
+    "successful_pages": 2,
+    "failed_pages": 0,
+    "robots_blocked": 2,
+    "duplicate_urls": 2,
+    "redirects": 4,
+    "non_html_responses": 1,
+    "crawl_duration_seconds": 120.77290799998445
+  },
+  "evaluation_scope": {
+    "status": "Partial",
+    "reason": "Configured page limit reached",
+    "pages_evaluated": 3,
+    "max_pages": 5,
+    "max_depth": 2,
+    "robots_respected": true,
+    "termination_reason": "closespider_pagecount"
   },
   "findings": [
     {
@@ -29,24 +45,17 @@
         "type": "deterministic"
       },
       "evidence": {
-        "pages_checked": 23,
-        "pages_affected": 8,
-        "affected_percentage": 34.78260869565217,
+        "pages_checked": 3,
+        "pages_affected": 1,
+        "affected_percentage": 33.33333333333333,
         "affected_pages": {
-          "count": 8,
+          "count": 1,
           "sample": [
-            "https://www.adobe.com/creativecloud/plans.html",
-            "https://www.adobe.com/dc-shared/fragments/acrobat/get-acrobat-support",
-            "https://www.adobe.com/dc-shared/fragments/promo-banners/acrobat-studio",
-            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/customer-testimonials/customer-testimonials",
-            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/en-lingo/marquee-sub-copy/cc-pro/default",
-            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/explore-whats-new/explore-whats-new",
-            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/news/news",
-            "https://www.adobe.com/homepage/fragments/loggedout/row-custom-pods/regular-pods/ff-date-ext-192863"
+            "https://www.adobe.com/education/students/creativecloud.html"
           ],
           "truncated": false
         },
-        "page": "https://www.adobe.com/creativecloud/plans.html",
+        "page": "https://www.adobe.com/education/students/creativecloud.html",
         "source": "extracted",
         "field": "h1s",
         "observed_value": "0 H1 tags found",
@@ -64,35 +73,34 @@
       }
     },
     {
-      "id": "G-AI-LINK-002-0574B9212B9E2C0A07586451E999193C",
+      "id": "G-AI-REDIRECT-001-41C36595A8B9C0270715952E6310C2DC",
       "pipeline": "ai_discoverability",
-      "title": "Internal Link(s) to Redirect",
-      "severity": "low",
+      "title": "Redirect Chain",
+      "severity": "medium",
       "trigger": {
-        "rule_id": "AI-LINK-002",
+        "rule_id": "AI-REDIRECT-001",
         "type": "deterministic"
       },
       "evidence": {
-        "pages_checked": 23,
-        "pages_affected": 2,
-        "affected_percentage": 8.695652173913043,
+        "pages_checked": 3,
+        "pages_affected": 1,
+        "affected_percentage": 33.33333333333333,
         "affected_pages": {
-          "count": 2,
+          "count": 1,
           "sample": [
-            "https://www.adobe.com/acrobat.html",
-            "https://www.adobe.com/dc-shared/fragments/promo-banners/acrobat-studio"
+            "http://adobe.com"
           ],
           "truncated": false
         },
-        "page": "https://www.adobe.com/acrobat.html",
-        "source": "internal_links",
-        "field": "internal_links",
-        "observed_value": "https://www.adobe.com/acrobat/pricing",
+        "page": "http://adobe.com",
+        "source": "redirect_chain",
+        "field": "redirect_chain",
+        "observed_value": "http://adobe.com -> https://adobe.com/",
         "details": {}
       },
       "suggested_action": {
-        "summary": "Update internal links to point directly to their final destinations.",
-        "priority": "low"
+        "summary": "Update links to point to the final URL directly.",
+        "priority": "medium"
       },
       "genai": {
         "used": true,
@@ -102,78 +110,34 @@
       }
     },
     {
-      "id": "G-AI-META-003-60ED0C52973A6A2695C10D3DDAD237DA",
+      "id": "G-AI-ROBOTS-001-8EB8CDACBF7BEB47A14FBA5FE6F9C5D6",
       "pipeline": "ai_discoverability",
-      "title": "Missing Meta Description",
-      "severity": "low",
+      "title": "Robots.txt Blocking",
+      "severity": "medium",
       "trigger": {
-        "rule_id": "AI-META-003",
+        "rule_id": "AI-ROBOTS-001",
         "type": "deterministic"
       },
       "evidence": {
-        "pages_checked": 23,
-        "pages_affected": 2,
-        "affected_percentage": 8.695652173913043,
+        "pages_checked": 3,
+        "pages_affected": 1,
+        "affected_percentage": 33.33333333333333,
         "affected_pages": {
-          "count": 2,
+          "count": 1,
           "sample": [
-            "https://www.adobe.com/dc-shared/fragments/acrobat/get-acrobat-support",
-            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/customer-testimonials/customer-testimonials"
+            "http://adobe.com"
           ],
           "truncated": false
         },
-        "page": "https://www.adobe.com/dc-shared/fragments/acrobat/get-acrobat-support",
-        "source": "extracted",
-        "field": "meta_description",
-        "observed_value": "None or empty",
+        "page": "http://adobe.com",
+        "source": "unfetched_urls",
+        "field": "robots_blocked",
+        "observed_value": "2 URLs blocked. Examples: https://milo.adobe.com/tools/ost?osi=x0LkInr7lGkqK8dcTFS_Pc6oHauo_g7N_4yWT_gLn20&type=checkoutUrl&text=free-trial&workflowStep=segmentation&modal=twp, https://milo.adobe.com/tools/ost?osi=JzW8dgW8U1SrgbHDmTE-ABsOKPgtl5jugiW8bA5PtKg&type=checkoutUrl&text=free-trial&workflowStep=segmentation&modal=twp&ms=e",
         "details": {}
       },
       "suggested_action": {
-        "summary": "Consider adding a meta description.",
-        "priority": "low"
-      },
-      "genai": {
-        "used": true,
-        "explanation": "This is a generalized explanation of the group issue. It helps search engines parse the site.",
-        "why_it_matters": "It matters because search engines need clear guidance.",
-        "possible_solution": "Implement the suggested best practices."
-      }
-    },
-    {
-      "id": "G-AI-ROBOTS-002-D621065B53105F33B7ACFD1C9CBA6074",
-      "pipeline": "ai_discoverability",
-      "title": "Noindex Directive Present",
-      "severity": "low",
-      "trigger": {
-        "rule_id": "AI-ROBOTS-002",
-        "type": "deterministic"
-      },
-      "evidence": {
-        "pages_checked": 23,
-        "pages_affected": 7,
-        "affected_percentage": 30.434782608695656,
-        "affected_pages": {
-          "count": 7,
-          "sample": [
-            "https://www.adobe.com/dc-shared/fragments/acrobat/get-acrobat-support",
-            "https://www.adobe.com/dc-shared/fragments/promo-banners/acrobat-studio",
-            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/customer-testimonials/customer-testimonials",
-            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/en-lingo/marquee-sub-copy/cc-pro/default",
-            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/explore-whats-new/explore-whats-new",
-            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/news/news",
-            "https://www.adobe.com/homepage/fragments/loggedout/row-custom-pods/regular-pods/ff-date-ext-192863"
-          ],
-          "truncated": false
-        },
-        "page": "https://www.adobe.com/dc-shared/fragments/acrobat/get-acrobat-support",
-        "source": "meta_robots",
-        "field": "meta_robots",
-        "observed_value": "noindex directive present",
-        "details": {}
-      },
-      "suggested_action": {
-        "summary": "Review to ensure directive is intentional. If intended to be discoverable, remove the directive.",
-        "priority": "low"
+        "summary": "Review robots.txt rules.",
+        "priority": "medium"
       },
       "genai": {
         "used": true,
@@ -192,23 +156,18 @@
         "type": "deterministic"
       },
       "evidence": {
-        "pages_checked": 23,
-        "pages_affected": 7,
-        "affected_percentage": 30.434782608695656,
+        "pages_checked": 3,
+        "pages_affected": 2,
+        "affected_percentage": 66.66666666666666,
         "affected_pages": {
-          "count": 7,
+          "count": 2,
           "sample": [
-            "https://www.adobe.com",
-            "https://www.adobe.com/",
-            "https://www.adobe.com/acrobat.html",
-            "https://www.adobe.com/acrobat/generative-ai-pdf.html",
-            "https://www.adobe.com/homepage/fragments/loggedout/redesign/default/explore-whats-new/explore-whats-new",
-            "https://www.adobe.com/products/photoshop/app.html",
-            "https://www.adobe.com/products/premiere/color-mode.html"
+            "http://adobe.com",
+            "https://www.adobe.com/education/students/creativecloud.html"
           ],
           "truncated": false
         },
-        "page": "https://www.adobe.com",
+        "page": "http://adobe.com",
         "details": {
           "total_images": 11,
           "images_with_alt": 5,
@@ -221,25 +180,9 @@
       }
     }
   ],
-  "genai_diagnostics": {
-    "eligible_groups": 4,
-    "requests_attempted": 4,
-    "successful": 4,
-    "rate_limited": 0,
-    "timeouts": 0,
-    "provider_failures": 0,
-    "invalid_responses": 0,
-    "skipped_by_budget": 0,
-    "total_duration_seconds": 0.014581680297851562
-  },
-  "stage_timing": {
-    "crawling": 3.5325396060943604,
-    "rule_engines": 0.00395655632019043,
-    "grouping": 0.0007791519165039062,
-    "evidence_validation": 0.00031185150146484375,
-    "nlp": 0.0010349750518798828,
-    "genai": 0.015651941299438477,
-    "reporting": 0.0059430599212646484,
-    "total": 3.560379981994629
+  "diagnostics": {
+    "findings_evaluated": 4,
+    "evidence_valid_findings": 4,
+    "excluded_findings": 0
   }
 }
