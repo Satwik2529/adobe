@@ -9,26 +9,17 @@
       "type": "deterministic"
     },
     "evidence": {
-      "pages_checked": 53,
-      "pages_affected": 38,
-      "affected_percentage": 71.69811320754717,
+      "pages_checked": 1,
+      "pages_affected": 1,
+      "affected_percentage": 100.0,
       "affected_pages": {
-        "count": 38,
+        "count": 1,
         "sample": [
-          "https://www.python.org/",
-          "https://www.python.org/about/legal/",
-          "https://www.python.org/blogs/",
-          "https://www.python.org/community/logos/",
-          "https://www.python.org/community/sigs/",
-          "https://www.python.org/community/sigs/current/capi-sig",
-          "https://www.python.org/community/sigs/current/cplusplus-sig",
-          "https://www.python.org/community/sigs/current/db-sig",
-          "https://www.python.org/community/sigs/current/distutils-sig",
-          "https://www.python.org/community/sigs/current/doc-sig"
+          "https://example.com"
         ],
-        "truncated": true
+        "truncated": false
       },
-      "page": "https://www.python.org/",
+      "page": "https://example.com",
       "source": "extracted",
       "field": "canonical",
       "observed_value": "No canonical tag found",
@@ -40,106 +31,34 @@
     }
   },
   {
-    "id": "G-AI-HTML-001-F32432B17D398C74E7830AF966DE4A00",
+    "id": "G-AI-META-003-60ED0C52973A6A2695C10D3DDAD237DA",
     "pipeline": "ai_discoverability",
-    "title": "Missing H1",
-    "severity": "medium",
-    "trigger": {
-      "rule_id": "AI-HTML-001",
-      "type": "deterministic"
-    },
-    "evidence": {
-      "pages_checked": 53,
-      "pages_affected": 1,
-      "affected_percentage": 1.8867924528301887,
-      "affected_pages": {
-        "count": 1,
-        "sample": [
-          "https://www.python.org/shell/"
-        ],
-        "truncated": false
-      },
-      "page": "https://www.python.org/shell/",
-      "source": "extracted",
-      "field": "h1s",
-      "observed_value": "0 H1 tags found",
-      "details": {}
-    },
-    "suggested_action": {
-      "summary": "Add an H1 tag to describe the page's main topic.",
-      "priority": "medium"
-    }
-  },
-  {
-    "id": "G-AI-LINK-002-0574B9212B9E2C0A07586451E999193C",
-    "pipeline": "ai_discoverability",
-    "title": "Internal Link(s) to Redirect",
+    "title": "Missing Meta Description",
     "severity": "low",
     "trigger": {
-      "rule_id": "AI-LINK-002",
+      "rule_id": "AI-META-003",
       "type": "deterministic"
     },
     "evidence": {
-      "pages_checked": 53,
-      "pages_affected": 38,
-      "affected_percentage": 71.69811320754717,
-      "affected_pages": {
-        "count": 38,
-        "sample": [
-          "https://www.python.org/",
-          "https://www.python.org/about/legal/",
-          "https://www.python.org/blogs/",
-          "https://www.python.org/community/logos/",
-          "https://www.python.org/community/sigs/",
-          "https://www.python.org/community/sigs/current/capi-sig",
-          "https://www.python.org/community/sigs/current/cplusplus-sig",
-          "https://www.python.org/community/sigs/current/db-sig",
-          "https://www.python.org/community/sigs/current/distutils-sig",
-          "https://www.python.org/community/sigs/current/doc-sig"
-        ],
-        "truncated": true
-      },
-      "page": "https://www.python.org/",
-      "source": "internal_links",
-      "field": "internal_links",
-      "observed_value": "https://www.python.org/download/alternatives",
-      "details": {}
-    },
-    "suggested_action": {
-      "summary": "Update internal links to point directly to their final destinations.",
-      "priority": "low"
-    }
-  },
-  {
-    "id": "G-ENG-MEDIA-001-AD763C884D9BB66CD975FE1A176C65C4",
-    "pipeline": "engagement",
-    "title": "Missing Image Alt Text",
-    "severity": "medium",
-    "trigger": {
-      "rule_id": "ENG-MEDIA-001",
-      "type": "deterministic"
-    },
-    "evidence": {
-      "pages_checked": 53,
+      "pages_checked": 1,
       "pages_affected": 1,
-      "affected_percentage": 1.8867924528301887,
+      "affected_percentage": 100.0,
       "affected_pages": {
         "count": 1,
         "sample": [
-          "https://www.python.org/psf/developersinresidence/"
+          "https://example.com"
         ],
         "truncated": false
       },
-      "page": "https://www.python.org/psf/developersinresidence/",
-      "details": {
-        "total_images": 5,
-        "images_with_alt": 1,
-        "images_missing_alt": 4
-      }
+      "page": "https://example.com",
+      "source": "extracted",
+      "field": "meta_description",
+      "observed_value": "None or empty",
+      "details": {}
     },
     "suggested_action": {
-      "summary": "Images are missing alternative text.",
-      "priority": "medium"
+      "summary": "Consider adding a meta description.",
+      "priority": "low"
     }
   }
 ]

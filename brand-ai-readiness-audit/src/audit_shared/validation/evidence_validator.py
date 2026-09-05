@@ -165,7 +165,25 @@ class EvidenceValidator:
         if f.evidence.excerpt:
             if record.extracted.visible_text and f.evidence.excerpt not in record.extracted.visible_text:
                  errors.append(f"Semantic excerpt not found in crawled text content.")
-        if f.evidence.details and "confidence" in f.evidence.details:
-            conf = f.evidence.details["confidence"]
-            if not isinstance(conf, (int, float)) or not (0 <= conf <= 1):
-                errors.append(f"Semantic confidence must be a float between 0 and 1, got {conf}")
+                 
+        if f.evidence.details:
+            if "confidence" in f.evidence.details:
+                conf = f.evidence.details["confidence"]
+                if not isinstance(conf, (int, float)) or not (0 <= conf <= 1):
+                    errors.append(f"Semantic confidence must be a float between 0 and 1, got {conf}")
+                    
+            if "sources" in f.evidence.details:
+                for source in f.evidence.details["sources"]:
+                    field_name = source.get("field")
+                    text = source.get("text")
+                    if field_name and text:
+                        if hasattr(record.extracted, field_name):
+                            actual_val = getattr(record.extracted, field_name)
+                            if actual_val is None:
+                                errors.append(f"Semantic source field '{field_name}' is None in CrawlDataset.")
+                            elif isinstance(actual_val, str) and text not in actual_val:
+                                errors.append(f"Semantic source text not found in crawled field '{field_name}'.")
+                            elif isinstance(actual_val, list) and text not in str(actual_val):
+                                errors.append(f"Semantic source text not found in crawled field '{field_name}'.")
+                        else:
+                            errors.append(f"Semantic source field '{field_name}' does not exist in CrawlDataset.")

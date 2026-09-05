@@ -14,6 +14,10 @@ from audit_shared.models.data_flow import CrawlDataset, PageRecord, ExtractedDat
 from audit_shared.models.grouping import EvaluationScope
 from audit_shared.grouping.deduplicator import GroupDeduplicator
 from audit_shared.validation.evidence_validator import EvidenceValidator
+from audit_shared.nlp.client import NLPClient
+from audit_shared.nlp.rules import SemanticTopicRule
+from audit_shared.nlp.interpreter import SemanticInterpreter
+import asyncio
 def hydrate_dataset(data: dict) -> CrawlDataset:
     pages = []
     for p in data.get('pages', []):
@@ -78,9 +82,16 @@ def main():
     register_freshness_rules(registry)
     register_engagement_rules(registry)
     
-    print(f"Evaluating {len(registry._rules)} rules...")
-    
     result = RuleEngine.run(dataset, registry)
+    
+    print("Running Phase 10: Semantic/NLP Analysis...")
+    nlp_client = NLPClient(use_mock=True) # use mock for now
+    semantic_rule = SemanticTopicRule(client=nlp_client)
+    nlp_results = asyncio.run(semantic_rule.evaluate(dataset))
+    semantic_findings = SemanticInterpreter.interpret(nlp_results)
+    
+    print(f"Phase 10 produced {len(semantic_findings)} semantic findings.")
+    result.findings.extend(semantic_findings)
     
     print(f"\n--- CRAWL STATS ---")
     print(f"urls_discovered: {dataset.crawl_stats.urls_discovered}")
